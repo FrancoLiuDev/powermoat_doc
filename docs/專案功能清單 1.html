@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>專案功能清單 1</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">專案功能清單 1</h1>
+</header>
+<nav id="TOC">
+<ul>
+<li><a href="#pss-angular-專案功能清單">PSS Angular 專案功能清單</a><ul>
+<li><a href="#專案概述">專案概述</a></li>
+<li><a href="#一登入認證相關功能">一、登入/認證相關功能</a><ul>
+<li><a href="#使用者認證">1.1 使用者認證</a></li>
+</ul></li>
+<li><a href="#二儀表板-dashboard">二、儀表板 (Dashboard)</a><ul>
+<li><a href="#系統儀表板">2.1 系統儀表板</a></li>
+<li><a href="#個人儀表板">2.2 個人儀表板</a></li>
+<li><a href="#稽核員儀表板">2.3 稽核員儀表板</a></li>
+</ul></li>
+<li><a href="#三使用者管理-user-management">三、使用者管理 (User Management)</a><ul>
+<li><a href="#部門管理">3.1 部門管理</a></li>
+<li><a href="#使用者群組管理">3.2 使用者群組管理</a></li>
+<li><a href="#使用者帳號管理">3.3 使用者帳號管理</a></li>
+<li><a href="#員工管理">3.4 員工管理</a></li>
+<li><a href="#資料來源設定">3.5 資料來源設定</a></li>
+<li><a href="#角色群組異動管理">3.6 角色/群組異動管理</a></li>
+</ul></li>
+<li><a href="#四裝置印表機管理-printerdevice">四、裝置/印表機管理 (Printer/Device)</a><ul>
+<li><a href="#裝置管理">4.1 裝置管理</a></li>
+<li><a href="#特殊裝置管理">4.2 特殊裝置管理</a></li>
+<li><a href="#印表機管理">4.3 印表機管理</a></li>
+<li><a href="#印表機群組管理">4.4 印表機群組管理</a></li>
+</ul></li>
+<li><a href="#五報表功能-report">五、報表功能 (Report)</a><ul>
+<li><a href="#報表檢視">5.1 報表檢視</a></li>
+<li><a href="#列印記錄查詢">5.2 列印記錄查詢</a></li>
+</ul></li>
+<li><a href="#六列印工作詳細">六、列印工作詳細</a><ul>
+<li><a href="#不同角色的列印工作詳細頁面">6.1 不同角色的列印工作詳細頁面</a></li>
+<li><a href="#列印工作資訊內容">6.2 列印工作資訊內容</a></li>
+</ul></li>
+<li><a href="#七稽核功能-audit">七、稽核功能 (Audit)</a><ul>
+<li><a href="#稽核事件管理">7.1 稽核事件管理</a></li>
+<li><a href="#關鍵字管理">7.2 關鍵字管理</a></li>
+<li><a href="#稽核規則管理">7.3 稽核規則管理</a></li>
+<li><a href="#白名單管理">7.4 白名單管理</a></li>
+</ul></li>
+<li><a href="#八系統設定-setting">八、系統設定 (Setting)</a><ul>
+<li><a href="#伺服器設定">8.1 伺服器設定</a></li>
+<li><a href="#角色設定">8.2 角色設定</a></li>
+<li><a href="#安全性設定">8.3 安全性設定</a></li>
+<li><a href="#其他設定">8.4 其他設定</a></li>
+</ul></li>
+<li><a href="#九錯誤頁面">九、錯誤頁面</a></li>
+<li><a href="#十角色權限說明">十、角色權限說明</a><ul>
+<li><a href="#角色定義">10.1 角色定義</a></li>
+<li><a href="#權限矩陣">10.2 權限矩陣</a></li>
+</ul></li>
+<li><a href="#十一技術架構">十一、技術架構</a><ul>
+<li><a href="#前端框架">11.1 前端框架</a></li>
+<li><a href="#主要使用的套件">11.2 主要使用的套件</a></li>
+<li><a href="#專案結構">11.3 專案結構</a></li>
+</ul></li>
+<li><a href="#十二多語系支援">十二、多語系支援</a><ul>
+<li><a href="#支援語言">12.1 支援語言</a></li>
+<li><a href="#語系檔案位置">12.2 語系檔案位置</a></li>
+</ul></li>
+<li><a href="#十三開發與部署">十三、開發與部署</a><ul>
+<li><a href="#開發指令">13.1 開發指令</a></li>
+<li><a href="#環境設定">13.2 環境設定</a></li>
+</ul></li>
+<li><a href="#附錄主要-service-清單">附錄：主要 Service 清單</a><ul>
+<li><a href="#a.1-使用者相關-service">A.1 使用者相關 Service</a></li>
+<li><a href="#a.2-裝置相關-service">A.2 裝置相關 Service</a></li>
+<li><a href="#a.3-稽核相關-service">A.3 稽核相關 Service</a></li>
+<li><a href="#a.4-報表相關-service">A.4 報表相關 Service</a></li>
+<li><a href="#a.5-設定相關-service">A.5 設定相關 Service</a></li>
+<li><a href="#a.6-系統相關-service">A.6 系統相關 Service</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="pss-angular-專案功能清單">PSS Angular 專案功能清單</h1>
+<h2 id="專案概述">專案概述</h2>
+<p>本專案為列印安全管理系統 (Print Security System)，使用 Angular 11 框架開發。</p>
+<hr />
+<h2 id="一登入認證相關功能">一、登入/認證相關功能</h2>
+<h3 id="使用者認證">1.1 使用者認證</h3>
+<ul>
+<li><strong>SSO 登入</strong> (<code>/sso</code>)
+<ul>
+<li>單一登入功能</li>
+</ul></li>
+<li><strong>一般登入</strong> (<code>/login</code>)
+<ul>
+<li>標準帳號密碼登入</li>
+</ul></li>
+<li><strong>變更密碼</strong> (<code>/change_password</code>, <code>/main/change_password</code>)
+<ul>
+<li>使用者自行變更密碼</li>
+<li>角色：所有已登入使用者</li>
+</ul></li>
+<li><strong>忘記密碼</strong> (<code>/forgot_password</code>)
+<ul>
+<li>忘記密碼申請功能</li>
+</ul></li>
+<li><strong>重設密碼</strong> (<code>/reset_password/:token</code>)
+<ul>
+<li>透過 token 重設密碼</li>
+</ul></li>
+<li><strong>重設 PIN 碼</strong> (<code>/reset_pincode/:token</code>)
+<ul>
+<li>透過 token 重設使用者 PIN 碼</li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="二儀表板-dashboard">二、儀表板 (Dashboard)</h2>
+<h3 id="系統儀表板">2.1 系統儀表板</h3>
+<ul>
+<li><strong>路徑</strong>: <code>/main/systemdashboard</code></li>
+<li><strong>角色</strong>: admin, admin_auditor</li>
+<li><strong>功能</strong>:
+<ul>
+<li>系統整體運作狀態監控</li>
+<li>列印統計資訊</li>
+<li>系統資源使用情況</li>
+</ul></li>
+</ul>
+<h3 id="個人儀表板">2.2 個人儀表板</h3>
+<ul>
+<li><strong>路徑</strong>: <code>/main/personaldashboard</code></li>
+<li><strong>角色</strong>: 所有使用者</li>
+<li><strong>功能</strong>:
+<ul>
+<li>個人列印統計</li>
+<li>配額使用情況</li>
+<li>個人相關通知</li>
+</ul></li>
+</ul>
+<h3 id="稽核員儀表板">2.3 稽核員儀表板</h3>
+<ul>
+<li><strong>路徑</strong>: <code>/main/auditordashboard</code></li>
+<li><strong>角色</strong>: admin, auditor_admin, auditor, admin_auditor</li>
+<li><strong>功能</strong>:
+<ul>
+<li>稽核事件統計</li>
+<li>待審核項目</li>
+<li>稽核相關報表</li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="三使用者管理-user-management">三、使用者管理 (User Management)</h2>
+<h3 id="部門管理">3.1 部門管理</h3>
+<ul>
+<li><strong>部門清單</strong> (<code>/main/department</code>)
+<ul>
+<li>角色: admin, admin_auditor</li>
+<li>功能: 檢視、新增、編輯、刪除部門</li>
+</ul></li>
+<li><strong>部門詳細資料</strong> (<code>/main/departmentdetail/:department_id</code>)
+<ul>
+<li>角色: admin, admin_auditor</li>
+<li>功能: 檢視和編輯部門詳細資訊、部門成員管理</li>
+</ul></li>
+</ul>
+<h3 id="使用者群組管理">3.2 使用者群組管理</h3>
+<ul>
+<li><strong>使用者群組清單</strong> (<code>/main/usergroup</code>)
+<ul>
+<li>角色: admin, admin_auditor</li>
+<li>功能: 檢視、新增、編輯、刪除使用者群組</li>
+</ul></li>
+<li><strong>群組詳細資料</strong> (<code>/main/usergroupdetail/:usergroup_id</code>)
+<ul>
+<li>角色: admin, admin_auditor</li>
+<li>功能: 檢視和編輯群組資訊、群組成員管理</li>
+</ul></li>
+<li><strong>群組加入帳號</strong> (<code>/main/usergroupaddaccount</code>)
+<ul>
+<li>角色: admin, admin_auditor</li>
+<li>功能: 批次將使用者加入群組</li>
+</ul></li>
+</ul>
+<h3 id="使用者帳號管理">3.3 使用者帳號管理</h3>
+<ul>
+<li><strong>使用者帳號清單</strong> (<code>/main/useraccount</code>)
+<ul>
+<li>角色: admin, admin_auditor, support</li>
+<li>功能: 檢視、新增、編輯、刪除使用者帳號</li>
+</ul></li>
+<li><strong>使用者帳號詳細資料</strong> (<code>/main/useraccountdetail/:user_id</code>)
+<ul>
+<li>角色: admin, admin_auditor, support</li>
+<li>功能: 檢視和編輯使用者詳細資訊、角色權限設定</li>
+</ul></li>
+<li><strong>稽核員使用者清單</strong> (<code>/main/auditoruser</code>)
+<ul>
+<li>角色: admin, auditor_admin, auditor, admin_auditor</li>
+<li>功能: 稽核員專用的使用者清單檢視</li>
+</ul></li>
+<li><strong>使用者資料匯入</strong> (<code>/main/userdataimport</code>)
+<ul>
+<li>角色: admin, admin_auditor</li>
+<li>功能: 批次匯入使用者資料（支援 Excel 格式）</li>
+</ul></li>
+</ul>
+<h3 id="員工管理">3.4 員工管理</h3>
+<ul>
+<li><strong>員工清單</strong> (<code>/main/employee</code>)
+<ul>
+<li>角色: admin, admin_auditor, support</li>
+<li>功能: 檢視和管理從 AD 或外部資料庫同步的員工資料</li>
+</ul></li>
+<li><strong>未配對員工清單</strong> (<code>/main/unmatched_employee</code>)
+<ul>
+<li>角色: admin, admin_auditor, support</li>
+<li>功能: 檢視尚未配對到系統使用者的員工資料</li>
+</ul></li>
+</ul>
+<h3 id="資料來源設定">3.5 資料來源設定</h3>
+<ul>
+<li><strong>資料來源設定清單</strong> (<code>/main/sourcesettinglist</code>)
+<ul>
+<li>角色: admin, admin_auditor</li>
+<li>功能: 管理員工資料來源（AD、資料庫）</li>
+</ul></li>
+<li><strong>AD 設定</strong>
+<ul>
+<li>新增: <code>/main/adsetting/add</code></li>
+<li>編輯: <code>/main/adsetting/:ad_setting_id</code></li>
+<li>角色: admin, admin_auditor</li>
+<li>功能: 設定 Active Directory 連線參數、同步規則</li>
+</ul></li>
+<li><strong>資料庫設定</strong>
+<ul>
+<li>新增: <code>/main/dbsetting/add</code></li>
+<li>編輯: <code>/main/dbsetting/:db_setting_id</code></li>
+<li>角色: admin, admin_auditor</li>
+<li>功能: 設定外部資料庫連線參數、SQL 查詢</li>
+</ul></li>
+</ul>
+<h3 id="角色群組異動管理">3.6 角色/群組異動管理</h3>
+<ul>
+<li><strong>使用者角色異動</strong> (<code>/main/userrolechange</code>)
+<ul>
+<li>角色: admin, admin_auditor</li>
+<li>功能: 檢視和審核使用者角色異動申請</li>
+</ul></li>
+<li><strong>角色異動詳細</strong> (<code>/main/userrolechangedetail/:auth_role_user_change_id</code>)
+<ul>
+<li>角色: admin, admin_auditor</li>
+<li>功能: 檢視角色異動詳細資訊、審核通過或駁回</li>
+</ul></li>
+<li><strong>使用者群組異動</strong> (<code>/main/userusergroupchange</code>)
+<ul>
+<li>角色: admin, admin_auditor, support</li>
+<li>功能: 檢視和審核使用者群組異動申請</li>
+</ul></li>
+<li><strong>群組異動詳細</strong> (<code>/main/userusergroupchangedetail/:user_usergroup_change_id</code>)
+<ul>
+<li>角色: admin, admin_auditor, support</li>
+<li>功能: 檢視群組異動詳細資訊、審核通過或駁回</li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="四裝置印表機管理-printerdevice">四、裝置/印表機管理 (Printer/Device)</h2>
+<h3 id="裝置管理">4.1 裝置管理</h3>
+<ul>
+<li><strong>裝置清單</strong> (<code>/main/devicelist</code>)
+<ul>
+<li>角色: admin, admin_auditor</li>
+<li>功能:
+<ul>
+<li>檢視所有裝置</li>
+<li>新增、編輯、刪除裝置</li>
+<li>批次匯入裝置（Excel）</li>
+<li>匯出裝置清單</li>
+<li>裝置搜尋與篩選</li>
+</ul></li>
+</ul></li>
+<li><strong>裝置詳細資料</strong> (<code>/main/devicedetail/:device_id</code>)
+<ul>
+<li>角色: admin, admin_auditor</li>
+<li>功能:
+<ul>
+<li>檢視裝置詳細資訊</li>
+<li>編輯裝置設定</li>
+<li>裝置狀態監控</li>
+<li>讀卡機設定</li>
+</ul></li>
+</ul></li>
+<li><strong>OXPD 裝置詳細</strong> (<code>/main/devicedetail_oxpd/:device_id</code>)
+<ul>
+<li>角色: admin, admin_auditor</li>
+<li>功能: HP OXPD 專用裝置詳細頁面</li>
+</ul></li>
+</ul>
+<h3 id="特殊裝置管理">4.2 特殊裝置管理</h3>
+<ul>
+<li><strong>HP OXPD 管理</strong> (<code>/main/hpoxpd</code>)
+<ul>
+<li>角色: admin, admin_auditor</li>
+<li>功能:
+<ul>
+<li>管理 HP OXPD (Open Extensibility Platform Device) 裝置</li>
+<li>檢視 OXPD 註冊狀態</li>
+<li>OXPD 裝置設定</li>
+</ul></li>
+</ul></li>
+<li><strong>FUJIFILM AIP 管理</strong> (<code>/main/fujiaip</code>)
+<ul>
+<li>角色: admin, admin_auditor</li>
+<li>功能:
+<ul>
+<li>管理 FUJIFILM AIP (Application Integration Platform) 裝置</li>
+<li>檢視 AIP 註冊狀態</li>
+<li>AIP 裝置設定</li>
+</ul></li>
+</ul></li>
+<li><strong>部署裝置</strong> (<code>/main/deploydevice</code>)
+<ul>
+<li>角色: admin, admin_auditor</li>
+<li>功能:
+<ul>
+<li>裝置部署管理</li>
+<li>批次部署設定</li>
+</ul></li>
+</ul></li>
+<li><strong>裝置活動記錄</strong> (<code>/main/deviceactivitylog</code>)
+<ul>
+<li>角色: admin, admin_auditor</li>
+<li>功能:
+<ul>
+<li>檢視裝置活動歷史記錄</li>
+<li>裝置狀態變更記錄</li>
+<li>裝置資產異動歷史</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="印表機管理">4.3 印表機管理</h3>
+<ul>
+<li><strong>印表機清單</strong> (<code>/main/printerlist</code>)
+<ul>
+<li>角色: admin, admin_auditor</li>
+<li>功能:
+<ul>
+<li>檢視所有印表機</li>
+<li>新增、編輯、刪除印表機</li>
+<li>印表機狀態監控</li>
+<li>印表機搜尋與篩選</li>
+</ul>
+<a href="http://218.35.171.90/html/doc/images/gWWKOJW.png"><img src="http://218.35.171.90/html/doc/images/gWWKOJW.png" alt="我的圖片" /></a>
+<ul>
+<li>下一行</li>
+</ul></li>
+</ul></li>
+<li><strong>印表機詳細資料</strong> (<code>/main/printerdetail/:printer_id</code>)
+<ul>
+<li>角色: admin, admin_auditor</li>
+<li>功能:
+<ul>
+<li>檢視印表機詳細資訊</li>
+<li>編輯印表機設定</li>
+<li>關聯裝置設定</li>
+<li>列印角色指派</li>
+</ul></li>
+</ul></li>
+<li><strong>複製印表機</strong> (<code>/main/printercopy</code>)
+<ul>
+<li>角色: admin, admin_auditor</li>
+<li>功能:
+<ul>
+<li>快速複製印表機設定</li>
+<li>批次建立類似設定的印表機</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="印表機群組管理">4.4 印表機群組管理</h3>
+<ul>
+<li><strong>印表機群組清單</strong> (<code>/main/printergroup</code>)
+<ul>
+<li>角色: admin, admin_auditor</li>
+<li>功能:
+<ul>
+<li>檢視、新增、編輯、刪除印表機群組</li>
+<li>群組成員管理</li>
+</ul></li>
+</ul></li>
+<li><strong>群組詳細資料</strong> (<code>/main/printergroupdetail/:printer_group_id</code>)
+<ul>
+<li>角色: admin, admin_auditor</li>
+<li>功能:
+<ul>
+<li>檢視和編輯群組資訊</li>
+<li>管理群組內的印表機</li>
+<li>群組權限設定</li>
+</ul></li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="五報表功能-report">五、報表功能 (Report)</h2>
+<h3 id="報表檢視">5.1 報表檢視</h3>
+<ul>
+<li><strong>標準報表</strong> (<code>/main/standardreport</code>)
+<ul>
+<li>角色: admin, admin_auditor, auditor, auditor_admin, support</li>
+<li>功能:
+<ul>
+<li>預設報表範本</li>
+<li>自訂報表查詢</li>
+<li>報表匯出（Excel、PDF）</li>
+<li>排程報表設定</li>
+</ul></li>
+</ul></li>
+<li><strong>報表檢視器</strong> (<code>/reportviewer/:token</code>)
+<ul>
+<li>角色: 透過 token 驗證</li>
+<li>功能:
+<ul>
+<li>獨立報表檢視頁面</li>
+<li>支援外部分享連結</li>
+</ul></li>
+</ul></li>
+<li><strong>掃描檢視器</strong> (<code>/scanviewer/:token</code>)
+<ul>
+<li>角色: 透過 token 驗證</li>
+<li>功能:
+<ul>
+<li>掃描文件檢視</li>
+<li>支援外部分享連結</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="列印記錄查詢">5.2 列印記錄查詢</h3>
+<ul>
+<li><strong>列印記錄</strong> (<code>/main/printrecord</code>)
+<ul>
+<li>角色: admin, admin_auditor, support</li>
+<li>功能:
+<ul>
+<li>查詢所有列印記錄</li>
+<li>進階搜尋與篩選</li>
+<li>記錄匯出</li>
+</ul></li>
+</ul></li>
+<li><strong>個人列印記錄</strong> (<code>/main/personalrecord</code>)
+<ul>
+<li>角色: 所有使用者</li>
+<li>功能:
+<ul>
+<li>查詢個人列印記錄</li>
+<li>個人列印統計</li>
+</ul></li>
+</ul></li>
+<li><strong>稽核員列印記錄</strong> (<code>/main/auditorrecord</code>)
+<ul>
+<li>角色: admin, auditor_admin, auditor, admin_auditor</li>
+<li>功能:
+<ul>
+<li>稽核員專用列印記錄查詢</li>
+<li>稽核相關篩選</li>
+</ul></li>
+</ul></li>
+<li><strong>部門稽核員列印記錄</strong> (<code>/main/departmentauditorrecord</code>)
+<ul>
+<li>角色: admin, department_auditor, admin_auditor</li>
+<li>功能:
+<ul>
+<li>部門內列印記錄查詢</li>
+<li>部門統計報表</li>
+</ul></li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="六列印工作詳細">六、列印工作詳細</h2>
+<h3 id="不同角色的列印工作詳細頁面">6.1 不同角色的列印工作詳細頁面</h3>
+<ul>
+<li><strong>使用者列印工作詳細</strong> (<code>/main/user/printjobdetail/:job_id</code>)
+<ul>
+<li>角色: admin, auditor_admin, auditor, user, department_auditor, admin_auditor</li>
+<li>功能: 檢視列印工作詳細資訊</li>
+</ul></li>
+<li><strong>審核列印工作詳細</strong> (<code>/main/review/printjobdetail/:job_id</code>)
+<ul>
+<li>角色: admin, auditor, user, department_auditor, admin_auditor, support</li>
+<li>功能: 審核列印工作、通過或駁回</li>
+</ul></li>
+<li><strong>管理員列印工作詳細</strong> (<code>/main/admin/printjobdetail/:job_id</code>)
+<ul>
+<li>角色: admin, admin_auditor</li>
+<li>功能: 管理員檢視所有列印工作詳細</li>
+</ul></li>
+<li><strong>稽核員列印工作詳細</strong> (<code>/main/auditor/printjobdetail/:job_id</code>)
+<ul>
+<li>角色: auditor, admin_auditor, auditor_admin</li>
+<li>功能: 稽核員檢視和處理稽核相關列印工作</li>
+</ul></li>
+<li><strong>部門稽核員列印工作詳細</strong> (<code>/main/department_auditor/printjobdetail/:job_id</code>)
+<ul>
+<li>角色: department_auditor, admin_auditor</li>
+<li>功能: 部門稽核員檢視部門內列印工作</li>
+</ul></li>
+</ul>
+<h3 id="列印工作資訊內容">6.2 列印工作資訊內容</h3>
+<ul>
+<li>列印文件預覽（支援 PDF）</li>
+<li>列印參數（頁數、份數、彩色/黑白）</li>
+<li>使用者資訊</li>
+<li>印表機資訊</li>
+<li>列印時間</li>
+<li>列印狀態</li>
+<li>成本計算</li>
+<li>稽核狀態（如適用）</li>
+</ul>
+<hr />
+<h2 id="七稽核功能-audit">七、稽核功能 (Audit)</h2>
+<h3 id="稽核事件管理">7.1 稽核事件管理</h3>
+<ul>
+<li><strong>稽核事件清單</strong> (<code>/main/auditevent</code>)
+<ul>
+<li>角色: auditor, admin_auditor, auditor_admin</li>
+<li>功能:
+<ul>
+<li>檢視所有稽核事件</li>
+<li>事件搜尋與篩選</li>
+<li>事件狀態管理</li>
+<li>匯出稽核事件</li>
+</ul></li>
+</ul></li>
+<li><strong>稽核事件詳細</strong> (<code>/main/auditeventdetail/:event_id</code>)
+<ul>
+<li>角色: auditor, admin_auditor, auditor_admin</li>
+<li>功能:
+<ul>
+<li>檢視事件詳細資訊</li>
+<li>查看觸發規則</li>
+<li>檢視相關列印文件</li>
+<li>事件處理記錄</li>
+</ul></li>
+</ul></li>
+<li><strong>稽核員稽核清單</strong> (<code>/main/auditoraudits</code>)
+<ul>
+<li>角色: admin, auditor_admin, auditor, admin_auditor</li>
+<li>功能:
+<ul>
+<li>稽核員專用的稽核清單</li>
+<li>待處理稽核項目</li>
+<li>稽核歷史記錄</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="關鍵字管理">7.2 關鍵字管理</h3>
+<ul>
+<li><strong>稽核關鍵字</strong> (<code>/main/auditkeyword</code>)
+<ul>
+<li>角色: auditor, admin_auditor, auditor_admin</li>
+<li>功能:
+<ul>
+<li>新增、編輯、刪除關鍵字</li>
+<li>關鍵字分類管理</li>
+<li>關鍵字搜尋測試</li>
+</ul></li>
+</ul></li>
+<li><strong>關鍵字分類設定清單</strong> (<code>/main/auditkeywordcategorysettinglist</code>)
+<ul>
+<li>角色: auditor, admin_auditor, auditor_admin</li>
+<li>功能:
+<ul>
+<li>管理關鍵字分類</li>
+<li>分類優先順序設定</li>
+</ul></li>
+</ul></li>
+<li><strong>關鍵字分類設定詳細</strong> (<code>/main/auditkeywordcategorysettingdetail/:category_id</code>)
+<ul>
+<li>角色: auditor, admin_auditor, auditor_admin</li>
+<li>功能:
+<ul>
+<li>編輯分類資訊</li>
+<li>管理分類內關鍵字</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="稽核規則管理">7.3 稽核規則管理</h3>
+<ul>
+<li><strong>稽核規則清單</strong> (<code>/main/auditrule</code>)
+<ul>
+<li>角色: auditor, admin_auditor, auditor_admin</li>
+<li>功能:
+<ul>
+<li>檢視、新增、編輯、刪除稽核規則</li>
+<li>規則啟用/停用</li>
+<li>規則優先順序設定</li>
+</ul></li>
+</ul></li>
+<li><strong>稽核規則詳細</strong> (<code>/main/auditruledetail/:rule_id</code>)
+<ul>
+<li>角色: auditor, admin_auditor, auditor_admin</li>
+<li>功能:
+<ul>
+<li>編輯規則條件</li>
+<li>設定觸發動作</li>
+<li>指定稽核員</li>
+<li>規則測試</li>
+</ul></li>
+</ul></li>
+<li><strong>安全等級設定清單</strong> (<code>/main/auditsecuritylevelsettinglist</code>)
+<ul>
+<li>角色: auditor, admin_auditor, auditor_admin</li>
+<li>功能:
+<ul>
+<li>管理安全等級定義</li>
+<li>等級與規則關聯</li>
+</ul></li>
+</ul></li>
+<li><strong>安全等級設定詳細</strong> (<code>/main/auditsecuritylevelsettingdetail/:security_level_id</code>)
+<ul>
+<li>角色: auditor, admin_auditor, auditor_admin</li>
+<li>功能:
+<ul>
+<li>編輯安全等級資訊</li>
+<li>設定等級參數</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="白名單管理">7.4 白名單管理</h3>
+<ul>
+<li><strong>使用者白名單</strong> (<code>/main/userwhitelist</code>)
+<ul>
+<li>角色: auditor, admin_auditor, auditor_admin</li>
+<li>功能:
+<ul>
+<li>管理免稽核使用者清單</li>
+<li>新增、移除白名單使用者</li>
+<li>白名單有效期設定</li>
+</ul></li>
+</ul></li>
+<li><strong>白名單設定</strong> (<code>/main/whitelist</code>)
+<ul>
+<li>角色: auditor, admin_auditor, auditor_admin</li>
+<li>功能:
+<ul>
+<li>白名單規則設定</li>
+<li>白名單範圍管理</li>
+</ul></li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="八系統設定-setting">八、系統設定 (Setting)</h2>
+<h3 id="伺服器設定">8.1 伺服器設定</h3>
+<ul>
+<li><strong>印表機伺服器</strong> (<code>/main/printerserver</code>)
+<ul>
+<li>角色: admin, admin_auditor</li>
+<li>功能:
+<ul>
+<li>檢視、新增、編輯、刪除印表機伺服器</li>
+<li>伺服器狀態監控</li>
+<li>伺服器叢集管理</li>
+</ul></li>
+</ul></li>
+<li><strong>伺服器詳細資料</strong> (<code>/main/printerserverdetail/:printer_server_id</code>)
+<ul>
+<li>角色: admin, admin_auditor</li>
+<li>功能:
+<ul>
+<li>編輯伺服器資訊</li>
+<li>連線設定</li>
+<li>伺服器效能監控</li>
+</ul></li>
+</ul></li>
+<li><strong>伺服器叢集詳細</strong> (<code>/main/printerserverclusterdetail/:printer_server_cluster_id</code>)
+<ul>
+<li>角色: admin, admin_auditor</li>
+<li>功能:
+<ul>
+<li>叢集設定管理</li>
+<li>負載平衡設定</li>
+<li>叢集成員管理</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="角色設定">8.2 角色設定</h3>
+<ul>
+<li><strong>列印角色設定</strong> (<code>/main/settingprintrole</code>)
+<ul>
+<li>角色: admin, admin_auditor</li>
+<li>功能:
+<ul>
+<li>定義列印角色</li>
+<li>角色權限設定</li>
+<li>角色與印表機關聯</li>
+</ul></li>
+</ul></li>
+<li><strong>列印角色詳細</strong> (<code>/main/settingprintroledetail/:print_role_id</code>)
+<ul>
+<li>角色: admin, admin_auditor</li>
+<li>功能:
+<ul>
+<li>編輯角色資訊</li>
+<li>設定列印限制</li>
+<li>角色成員管理</li>
+</ul></li>
+</ul></li>
+<li><strong>配額角色設定</strong> (<code>/main/settingquotarole</code>)
+<ul>
+<li>角色: admin, admin_auditor</li>
+<li>功能:
+<ul>
+<li>定義配額角色</li>
+<li>配額額度設定</li>
+<li>配額週期設定</li>
+</ul></li>
+</ul></li>
+<li><strong>配額角色詳細</strong> (<code>/main/settingquotaroledetail/:quota_role_id</code>)
+<ul>
+<li>角色: admin, admin_auditor</li>
+<li>功能:
+<ul>
+<li>編輯配額規則</li>
+<li>配額重置設定</li>
+<li>配額成員管理</li>
+</ul></li>
+</ul></li>
+<li><strong>成本角色設定</strong> (<code>/main/settingcostrole</code>)
+<ul>
+<li>角色: admin, admin_auditor</li>
+<li>功能:
+<ul>
+<li>定義成本角色</li>
+<li>成本計費規則</li>
+<li>成本中心設定</li>
+</ul></li>
+</ul></li>
+<li><strong>成本角色詳細</strong> (<code>/main/settingcostroledetail/:cost_role_id</code>)
+<ul>
+<li>角色: admin, admin_auditor</li>
+<li>功能:
+<ul>
+<li>編輯成本規則</li>
+<li>成本計算公式</li>
+<li>成本成員管理</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="安全性設定">8.3 安全性設定</h3>
+<ul>
+<li><strong>安全性設定</strong> (<code>/main/settingsecurity</code>)
+<ul>
+<li>角色: admin, admin_auditor</li>
+<li>功能:
+<ul>
+<li>系統安全性政策設定</li>
+<li>密碼政策</li>
+<li>登入限制</li>
+<li>工作階段設定</li>
+</ul></li>
+</ul></li>
+<li><strong>浮水印設定</strong> (<code>/main/settingwatermark</code>)
+<ul>
+<li>角色: admin, admin_auditor</li>
+<li>功能:
+<ul>
+<li>檢視浮水印範本清單</li>
+<li>新增、編輯、刪除浮水印</li>
+</ul></li>
+</ul></li>
+<li><strong>浮水印詳細</strong> (<code>/main/settingsecurity/watermark/:watermark_id</code>)
+<ul>
+<li>角色: admin, admin_auditor</li>
+<li>功能:
+<ul>
+<li>編輯浮水印內容</li>
+<li>浮水印樣式設定（位置、字體、透明度）</li>
+<li>浮水印預覽</li>
+<li>套用規則設定</li>
+</ul></li>
+</ul></li>
+<li><strong>OCR 設定</strong> (<code>/main/settingocr</code>)
+<ul>
+<li>角色: admin, admin_auditor</li>
+<li>功能:
+<ul>
+<li>OCR 引擎設定</li>
+<li>OCR 辨識語言</li>
+<li>OCR 精確度調整</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="其他設定">8.4 其他設定</h3>
+<ul>
+<li><strong>一般設定</strong> (<code>/main/settinggeneral</code>)
+<ul>
+<li>角色: admin, admin_auditor</li>
+<li>功能:
+<ul>
+<li>系統基本設定</li>
+<li>介面語言設定</li>
+<li>時區設定</li>
+<li>系統名稱與 Logo</li>
+</ul></li>
+</ul></li>
+<li><strong>通知設定</strong> (<code>/main/settingnotification</code>)
+<ul>
+<li>角色: admin, admin_auditor</li>
+<li>功能:
+<ul>
+<li>Email 通知設定</li>
+<li>通知範本管理</li>
+<li>通知觸發條件</li>
+<li>SMTP 伺服器設定</li>
+</ul></li>
+</ul></li>
+<li><strong>代碼設定</strong> (<code>/main/settingcode</code>)
+<ul>
+<li>角色: admin, admin_auditor</li>
+<li>功能:
+<ul>
+<li>成本中心代碼管理</li>
+<li>報表代碼管理</li>
+<li>使用者查詢代碼管理</li>
+</ul></li>
+</ul></li>
+<li><strong>系統日誌</strong> (<code>/main/syslog</code>)
+<ul>
+<li>角色: admin, admin_auditor</li>
+<li>功能:
+<ul>
+<li>檢視系統日誌</li>
+<li>日誌搜尋與篩選</li>
+<li>日誌匯出</li>
+<li>日誌保留政策設定</li>
+</ul></li>
+</ul></li>
+<li><strong>授權管理</strong> (<code>/main/settinglicense</code>)
+<ul>
+<li>角色: admin, admin_auditor</li>
+<li>功能:
+<ul>
+<li>檢視授權資訊</li>
+<li>授權檔案上傳</li>
+<li>授權使用統計</li>
+<li>授權到期提醒</li>
+</ul></li>
+</ul></li>
+<li><strong>授權過期</strong> (<code>/main/license_expired</code>)
+<ul>
+<li>角色: admin, admin_auditor</li>
+<li>功能:
+<ul>
+<li>授權過期處理</li>
+<li>續約流程</li>
+</ul></li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="九錯誤頁面">九、錯誤頁面</h2>
+<ul>
+<li><strong>404 錯誤</strong> (<code>/error404</code>)
+<ul>
+<li>功能: 頁面不存在時顯示</li>
+</ul></li>
+<li><strong>403 無權限</strong> (<code>/error403</code>)
+<ul>
+<li>功能: 無權限存取時顯示</li>
+</ul></li>
+<li><strong>授權錯誤</strong> (<code>/error_license</code>)
+<ul>
+<li>功能: 授權問題時顯示</li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="十角色權限說明">十、角色權限說明</h2>
+<h3 id="角色定義">10.1 角色定義</h3>
+<table>
+<thead>
+<tr class="header">
+<th>角色代碼</th>
+<th>角色名稱</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>admin</td>
+<td>系統管理員</td>
+<td>擁有完整系統權限，可存取所有功能</td>
+</tr>
+<tr class="even">
+<td>admin_auditor</td>
+<td>管理員稽核員</td>
+<td>結合管理員與稽核員權限</td>
+</tr>
+<tr class="odd">
+<td>auditor</td>
+<td>稽核員</td>
+<td>負責文件稽核工作，可檢視稽核事件和列印記錄</td>
+</tr>
+<tr class="even">
+<td>auditor_admin</td>
+<td>稽核管理員</td>
+<td>稽核功能的管理者，可設定稽核規則</td>
+</tr>
+<tr class="odd">
+<td>department_auditor</td>
+<td>部門稽核員</td>
+<td>僅可檢視和稽核所屬部門的列印記錄</td>
+</tr>
+<tr class="even">
+<td>user</td>
+<td>一般使用者</td>
+<td>基本使用者，可檢視個人相關資訊</td>
+</tr>
+<tr class="odd">
+<td>support</td>
+<td>支援人員</td>
+<td>技術支援角色，可協助使用者問題處理</td>
+</tr>
+</tbody>
+</table>
+<h3 id="權限矩陣">10.2 權限矩陣</h3>
+<table>
+<thead>
+<tr class="header">
+<th>功能模組</th>
+<th>admin</th>
+<th>admin_auditor</th>
+<th>auditor</th>
+<th>auditor_admin</th>
+<th>department_auditor</th>
+<th>user</th>
+<th>support</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>系統儀表板</td>
+<td>✓</td>
+<td>✓</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+</tr>
+<tr class="even">
+<td>個人儀表板</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr class="odd">
+<td>稽核員儀表板</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+</tr>
+<tr class="even">
+<td>使用者管理</td>
+<td>✓</td>
+<td>✓</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>部分</td>
+</tr>
+<tr class="odd">
+<td>裝置管理</td>
+<td>✓</td>
+<td>✓</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+</tr>
+<tr class="even">
+<td>印表機管理</td>
+<td>✓</td>
+<td>✓</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+</tr>
+<tr class="odd">
+<td>報表功能</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>部分</td>
+<td>部分</td>
+<td>✓</td>
+</tr>
+<tr class="even">
+<td>稽核功能</td>
+<td>✗</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+</tr>
+<tr class="odd">
+<td>系統設定</td>
+<td>✓</td>
+<td>✓</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="十一技術架構">十一、技術架構</h2>
+<h3 id="前端框架">11.1 前端框架</h3>
+<ul>
+<li><strong>Angular</strong>: 11.0.1</li>
+<li><strong>PrimeNG</strong>: 11.4.4 (UI 元件庫)</li>
+<li><strong>RxJS</strong>: 6.6.0 (響應式程式設計)</li>
+<li><strong>TypeScript</strong>: 4.0.2</li>
+</ul>
+<h3 id="主要使用的套件">11.2 主要使用的套件</h3>
+<ul>
+<li><strong><span class="citation" data-cites="ngx-translate/core">@ngx-translate/core</span></strong>: 多語系支援</li>
+<li><strong>chart.js</strong>: 圖表繪製</li>
+<li><strong>xlsx</strong>: Excel 檔案處理</li>
+<li><strong>jspdf</strong>: PDF 產生</li>
+<li><strong>ng2-pdf-viewer</strong>: PDF 檢視</li>
+<li><strong>fabric</strong>: Canvas 操作（浮水印編輯）</li>
+<li><strong>file-saver</strong>: 檔案下載</li>
+<li><strong>date-fns</strong>: 日期處理</li>
+<li><strong>lodash</strong>: 工具函式庫</li>
+</ul>
+<h3 id="專案結構">11.3 專案結構</h3>
+<pre><code>src/app/
+├── core/                    # 核心功能
+│   ├── guards/             # 路由守衛
+│   ├── models/             # 資料模型
+│   ├── services/           # 共用服務
+│   ├── pipes/              # 管道
+│   └── validators/         # 驗證器
+├── features/               # 功能模組
+│   ├── audit/             # 稽核功能
+│   ├── auditor/           # 稽核員功能
+│   ├── dashboard/         # 儀表板
+│   ├── login/             # 登入
+│   ├── printer/           # 印表機管理
+│   ├── report/            # 報表
+│   ├── setting/           # 系統設定
+│   └── usermanagement/    # 使用者管理
+├── shared/                # 共用元件
+│   ├── layout/           # 版面配置
+│   ├── dashboard/        # 共用儀表板元件
+│   └── error/            # 錯誤頁面
+└── assets/               # 靜態資源
+    └── i18n/            # 多語系檔案</code></pre>
+<hr />
+<h2 id="十二多語系支援">十二、多語系支援</h2>
+<h3 id="支援語言">12.1 支援語言</h3>
+<ul>
+<li><strong>繁體中文</strong> (zh-tw)</li>
+<li><strong>英文</strong> (en)</li>
+<li><strong>日文</strong> (jp)</li>
+</ul>
+<h3 id="語系檔案位置">12.2 語系檔案位置</h3>
+<ul>
+<li><code>src/assets/i18n/zh-tw.json</code></li>
+<li><code>src/assets/i18n/en.json</code></li>
+<li><code>src/assets/i18n/jp.json</code></li>
+</ul>
+<hr />
+<h2 id="十三開發與部署">十三、開發與部署</h2>
+<h3 id="開發指令">13.1 開發指令</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="co"># 啟動開發伺服器</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="ex">npm</span> start</a>
+<a class="sourceLine" id="cb2-3" title="3"></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="co"># 建置專案</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="ex">npm</span> run build</a>
+<a class="sourceLine" id="cb2-6" title="6"></a>
+<a class="sourceLine" id="cb2-7" title="7"><span class="co"># 建置正式版本</span></a>
+<a class="sourceLine" id="cb2-8" title="8"><span class="ex">npm</span> run build-prod</a>
+<a class="sourceLine" id="cb2-9" title="9"></a>
+<a class="sourceLine" id="cb2-10" title="10"><span class="co"># 執行測試</span></a>
+<a class="sourceLine" id="cb2-11" title="11"><span class="ex">npm</span> test</a>
+<a class="sourceLine" id="cb2-12" title="12"></a>
+<a class="sourceLine" id="cb2-13" title="13"><span class="co"># 執行 Lint 檢查</span></a>
+<a class="sourceLine" id="cb2-14" title="14"><span class="ex">npm</span> run lint</a></code></pre></div>
+<h3 id="環境設定">13.2 環境設定</h3>
+<ul>
+<li>開發環境: <code>src/environments/environment.ts</code></li>
+<li>正式環境: <code>src/environments/environment.prod.ts</code></li>
+</ul>
+<hr />
+<h2 id="附錄主要-service-清單">附錄：主要 Service 清單</h2>
+<h3 id="a.1-使用者相關-service">A.1 使用者相關 Service</h3>
+<ul>
+<li><code>user.service.ts</code> - 使用者管理</li>
+<li><code>user-context.service.ts</code> - 使用者上下文</li>
+<li><code>employee.service.ts</code> - 員工資料</li>
+<li><code>department.service.ts</code> - 部門管理</li>
+<li><code>user-group.service.ts</code> - 使用者群組</li>
+</ul>
+<h3 id="a.2-裝置相關-service">A.2 裝置相關 Service</h3>
+<ul>
+<li><code>device.service.ts</code> - 裝置管理</li>
+<li><code>printer.service.ts</code> - 印表機管理</li>
+<li><code>printer-group.service.ts</code> - 印表機群組</li>
+<li><code>printer-server.service.ts</code> - 印表機伺服器</li>
+</ul>
+<h3 id="a.3-稽核相關-service">A.3 稽核相關 Service</h3>
+<ul>
+<li><code>audit-event.service.ts</code> - 稽核事件</li>
+<li><code>audit-keyword.service.ts</code> - 稽核關鍵字</li>
+<li><code>audit-rule.service.ts</code> - 稽核規則</li>
+<li><code>audit-security-level.service.ts</code> - 安全等級</li>
+</ul>
+<h3 id="a.4-報表相關-service">A.4 報表相關 Service</h3>
+<ul>
+<li><code>report.service.ts</code> - 報表產生</li>
+<li><code>print-job.service.ts</code> - 列印工作</li>
+<li><code>dashboard.service.ts</code> - 儀表板資料</li>
+</ul>
+<h3 id="a.5-設定相關-service">A.5 設定相關 Service</h3>
+<ul>
+<li><code>print-role.service.ts</code> - 列印角色</li>
+<li><code>quota-role.service.ts</code> - 配額角色</li>
+<li><code>cost-role.service.ts</code> - 成本角色</li>
+<li><code>watermark.service.ts</code> - 浮水印</li>
+</ul>
+<h3 id="a.6-系統相關-service">A.6 系統相關 Service</h3>
+<ul>
+<li><code>api.ts</code> - API 呼叫服務</li>
+<li><code>session.service.ts</code> - Session 管理</li>
+<li><code>toast.service.ts</code> - 訊息提示</li>
+<li><code>util.service.ts</code> - 工具函式</li>
+<li><code>license.service.ts</code> - 授權管理</li>
+</ul>
+<hr />
+<p><strong>文件版本</strong>: 1.0<br />
+<strong>最後更新日期</strong>: 2025年12月3日<br />
+<strong>專案名稱</strong>: Print Security System (PSS)<br />
+<strong>框架版本</strong>: Angular 11.0.1</p>
+</body>
+</html>
