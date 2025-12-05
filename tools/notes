@@ -1,1 +1,1 @@
-pandoc root/A0001/PSS_漫遊列印_主程式.md -o output.html
+pandoc root/A0001/PSS_漫遊列印_主程式.md -o output/output.html
