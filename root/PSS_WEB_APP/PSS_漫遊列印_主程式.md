@@ -71,6 +71,10 @@
 
     [![image](http://218.35.171.90/html/doc/images/A0001/0008.png)](http://218.35.171.90/html/doc/images/A0001/0008.png)
 
+    #### Microsoft SQL Studio 安裝完成,點擊[關閉]
+
     [![image](http://218.35.171.90/html/doc/images/A0001/0009.png)](http://218.35.171.90/html/doc/images/A0001/0009.png)
+
+    #### Microsoft SQL Studio 安裝完成,點擊[關]
 
     [![image](http://218.35.171.90/html/doc/images/A0001/0010.png)](http://218.35.171.90/html/doc/images/A0001/0010.png)
