@@ -71,10 +71,22 @@
 
     [![image](http://218.35.171.90/html/doc/images/A0001/0008.png)](http://218.35.171.90/html/doc/images/A0001/0008.png)
 
-    #### Microsoft SQL Studio 安裝完成,點擊[關閉]
+    #### 出現安裝 Erlang OTP... 點選Next/安裝
 
     [![image](http://218.35.171.90/html/doc/images/A0001/0009.png)](http://218.35.171.90/html/doc/images/A0001/0009.png)
 
-    #### Microsoft SQL Studio 安裝完成,點擊[關]
+    #### Erlang 安裝完成,點擊[關閉/Close]
 
     [![image](http://218.35.171.90/html/doc/images/A0001/0010.png)](http://218.35.171.90/html/doc/images/A0001/0010.png)
+
+    #### 出現安裝 Rabbit MQ Server... 點選Next/安裝
+
+    [![image](http://218.35.171.90/html/doc/images/A0001/0009.png)](http://218.35.171.90/html/doc/images/A0001/0011.png)
+
+    [![image](http://218.35.171.90/html/doc/images/A0001/0009.png)](http://218.35.171.90/html/doc/images/A0001/0012.png)
+
+    #### Rabbit MQ Server 安裝完成,點擊[關閉/Close]
+
+    [![image](http://218.35.171.90/html/doc/images/A0001/0009.png)](http://218.35.171.90/html/doc/images/A0001/0013.png)
+
+    #### 重新啟動電腦

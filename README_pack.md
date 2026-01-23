@@ -99,3 +99,5 @@ python3 -m http.server 8000
 - 輸出目錄會自動創建，如果已存在會覆蓋同名文件
 
 http://localhost/html/doc/root/PSS_WEB_APP/
+
+python tools/root_to_html.py
