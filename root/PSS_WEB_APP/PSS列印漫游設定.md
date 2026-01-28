@@ -28,8 +28,25 @@ PSS列印伺服器(PSS Server) 基本設定,列印漫游設定主要分為兩部
 
 - 開啟 Print Management 軟體界面
 
-  [![image](http://124.218.37.90/html/doc/images/A0003/0001.png)](http://124.218.37.90/html/doc/images/A0003/0001.png)
+  [![image](http://#@ip/html/doc/images/A0003/0001.png)](http://#@ip/html/doc/images/A0003/0001.png)
 
 - 開啟 Print Server -> ports 項目,使用 Add Port
 
-  [![image](http://124.218.37.90/html/doc/images/A0003/0002.png)](http://124.218.37.90/html/doc/images/A0003/0002.png)
+  [![image](http://#@ip/html/doc/images/A0003/0002.png)](http://#@ip/html/doc/images/A0003/0002.png)
+
+- 接續選擇 Add Port -> Local Port -> Port Name (nil) -> Close
+  
+  0004圖
+  
+  使用者應該見到一個新的 Port (nil),如果沒有顯示請重新操作一次
+
+- 打開 Print Server -> Printers項目,操作 Add Printer
+  
+  0005圖
+
+- 選擇 Add a new printer using an existing port -> nil (Local port)
+  0006圖
+
+- 選擇 Install a new drivr
+
+  0007圖

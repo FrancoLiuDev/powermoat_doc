@@ -35,58 +35,58 @@
   
     點擊確認 (執行完成需約20分鐘)
 
-    [![image](http://124.218.37.90/html/doc/images/A0001/0001.png)](http://124.218.37.90/html/doc/images/A0001/0001.png)
+    [![image](http://#@ip/html/doc/images/A0001/0001.png)](http://#@ip/html/doc/images/A0001/0001.png)
 
   - 當出現安裝SQL解壓路徑時,只需點擊[確認]
   
-    [![image](http://124.218.37.90/html/doc/images/A0001/0002.png)](http://124.218.37.90/html/doc/images/A0001/0002.png)
+    [![image](http://#@ip/html/doc/images/A0001/0002.png)](http://#@ip/html/doc/images/A0001/0002.png)
 
   - 當出現安裝SQL Server 安裝選項時
 
     #### 點擊 New SQL Server
 
-    [![image](http://124.218.37.90/html/doc/images/A0001/0003.png)](http://124.218.37.90/html/doc/images/A0001/0003.png)
+    [![image](http://#@ip/html/doc/images/A0001/0003.png)](http://#@ip/html/doc/images/A0001/0003.png)
 
-    [![image](http://124.218.37.90/html/doc/images/A0001/0004.png)](http://124.218.37.90/html/doc/images/A0001/0003.png)
+    [![image](http://#@ip/html/doc/images/A0001/0004.png)](http://#@ip/html/doc/images/A0001/0003.png)
 
     #### 不選取 [ ]SQL Server Replication , [ ]SQL Machine Learning
 
-    [![image](http://124.218.37.90/html/doc/images/A0001/0005.png)](http://124.218.37.90/html/doc/images/A0001/0005.png)
+    [![image](http://#@ip/html/doc/images/A0001/0005.png)](http://#@ip/html/doc/images/A0001/0005.png)
 
     #### SQL Server 安裝完成,點擊[關閉]
 
-    [![image](http://124.218.37.90/html/doc/images/A0001/0006.png)](http://124.218.37.90/html/doc/images/A0001/0006.png)
+    [![image](http://#@ip/html/doc/images/A0001/0006.png)](http://#@ip/html/doc/images/A0001/0006.png)
 
     #### 點擊右上方關閉SQL Server 安裝選項
 
-    [![image](http://124.218.37.90/html/doc/images/A0001/0003.png)](http://124.218.37.90/html/doc/images/A0001/0003.png)
+    [![image](http://#@ip/html/doc/images/A0001/0003.png)](http://#@ip/html/doc/images/A0001/0003.png)
 
   - 當出現安裝 Microsoft SQL Studio 安裝選項時
   
     #### 點擊安裝 Microsoft SQL Studio
 
-    [![image](http://124.218.37.90/html/doc/images/A0001/0007.png)](http://124.218.37.90/html/doc/images/A0001/0007.png)
+    [![image](http://#@ip/html/doc/images/A0001/0007.png)](http://#@ip/html/doc/images/A0001/0007.png)
 
     #### Microsoft SQL Studio 安裝完成,點擊[關閉]
 
-    [![image](http://124.218.37.90/html/doc/images/A0001/0008.png)](http://124.218.37.90/html/doc/images/A0001/0008.png)
+    [![image](http://#@ip/html/doc/images/A0001/0008.png)](http://#@ip/html/doc/images/A0001/0008.png)
 
     #### 出現安裝 Erlang OTP... 點選Next/安裝
 
-    [![image](http://124.218.37.90/html/doc/images/A0001/0009.png)](http://124.218.37.90/html/doc/images/A0001/0009.png)
+    [![image](http://#@ip/html/doc/images/A0001/0009.png)](http://#@ip/html/doc/images/A0001/0009.png)
 
     #### Erlang 安裝完成,點擊[關閉/Close]
 
-    [![image](http://124.218.37.90/html/doc/images/A0001/0010.png)](http://124.218.37.90/html/doc/images/A0001/0010.png)
+    [![image](http://#@ip/html/doc/images/A0001/0010.png)](http://#@ip/html/doc/images/A0001/0010.png)
 
     #### 出現安裝 Rabbit MQ Server... 點選Next/安裝
 
-    [![image](http://124.218.37.90/html/doc/images/A0001/0009.png)](http://124.218.37.90/html/doc/images/A0001/0011.png)
+    [![image](http://#@ip/html/doc/images/A0001/0009.png)](http://#@ip/html/doc/images/A0001/0011.png)
 
-    [![image](http://124.218.37.90/html/doc/images/A0001/0009.png)](http://124.218.37.90/html/doc/images/A0001/0012.png)
+    [![image](http://#@ip/html/doc/images/A0001/0009.png)](http://#@ip/html/doc/images/A0001/0012.png)
 
     #### Rabbit MQ Server 安裝完成,點擊[關閉/Close]
 
-    [![image](http://124.218.37.90/html/doc/images/A0001/0009.png)](http://124.218.37.90/html/doc/images/A0001/0013.png)
+    [![image](http://#@ip/html/doc/images/A0001/0009.png)](http://#@ip/html/doc/images/A0001/0013.png)
 
     #### 重新啟動電腦

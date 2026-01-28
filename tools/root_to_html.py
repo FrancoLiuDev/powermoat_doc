@@ -9,10 +9,23 @@ import sys
 import subprocess
 from pathlib import Path
 import shutil
+import re
+
+# ========== 靜態參數設定 ==========
+# 將所有文件中的 IP 替換為此靜態 IP
+STATIC_IP = "124.218.37.90"
+# ==================================
 
 def convert_md_to_html(md_file, output_dir, base_dir):
     """轉換單個 MD 文件為 HTML"""
     md_path = Path(md_file)
+    
+    # 讀取 MD 文件內容
+    with open(md_file, 'r', encoding='utf-8') as f:
+        content = f.read()
+    
+    # 替換參數化的 IP 為靜態 IP
+    content = content.replace('#@ip', STATIC_IP)
     
     # 計算相對路徑
     rel_path = md_path.relative_to(base_dir)
@@ -21,6 +34,11 @@ def convert_md_to_html(md_file, output_dir, base_dir):
     output_subdir = output_dir / rel_path.parent
     output_subdir.mkdir(parents=True, exist_ok=True)
     
+    # 創建臨時文件來保存替換後的內容
+    temp_md_file = output_subdir / f"temp_{md_path.name}"
+    with open(temp_md_file, 'w', encoding='utf-8') as f:
+        f.write(content)
+    
     # 輸出文件名
     html_filename = md_path.stem + '.html'
     html_path = output_subdir / html_filename
@@ -28,7 +46,7 @@ def convert_md_to_html(md_file, output_dir, base_dir):
     # 使用 pandoc 轉換
     cmd = [
         'pandoc',
-        str(md_file),
+        str(temp_md_file),
         '-o', str(html_path),
         '--standalone',
         '--toc',
@@ -39,10 +57,15 @@ def convert_md_to_html(md_file, output_dir, base_dir):
     
     try:
         subprocess.run(cmd, check=True, capture_output=True)
+        # 刪除臨時文件
+        temp_md_file.unlink()
         return html_path
     except subprocess.CalledProcessError as e:
         print(f"❌ 轉換失敗: {md_file}")
         print(f"   錯誤: {e.stderr.decode()}")
+        # 清理臨時文件
+        if temp_md_file.exists():
+            temp_md_file.unlink()
         return None
 
 def find_all_md_files(directory):
@@ -224,6 +247,7 @@ def main():
     print()
     print(f"📂 輸入目錄: {root_dir}")
     print(f"📤 輸出目錄: {output_dir}")
+    print(f"🌐 靜態 IP: {STATIC_IP}")
     print()
     
     # 清空並重建輸出目錄
@@ -247,7 +271,7 @@ def main():
     print()
     
     # 轉換所有文件
-    print("🔄 開始轉換...")
+    print("🔄 開始轉換為 HTML...")
     html_files = []
     
     for i, md_file in enumerate(md_files, 1):
