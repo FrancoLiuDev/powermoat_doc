@@ -14,19 +14,19 @@ N/A
 
 - 解壓縮安裝資料夾(open)
   
-  #@A0004/0001.png
+  #@img_A0004/0001.png
   
-  #@A0004/0002.png
+  #@img_A0004/0002.png
 
 - 打開 Print Server -> Driver項目,操作 Add Driver
 
-  #@A0004/0003.png
+  #@img_A0004/0003.png
 
-  #@A0004/0004.png
+  #@img_A0004/0004.png
 
 - 選擇系統類型
   
-  #@A0004/0005.png
+  #@img_A0004/0005.png
 
 - 選擇 Have Disk -> 開啟 Fuji 驅動程式資料夾
 
