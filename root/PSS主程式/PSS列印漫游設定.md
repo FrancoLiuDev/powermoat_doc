@@ -79,9 +79,6 @@ PSS列印伺服器(PSS Server) 基本設定,列印漫游設定主要分為兩部
   IP: 本機 IP
   Port Name: 己建立的虛擬印表機名稱  (Printer_Roaming_LPR)
   
-
-
-
 ### 2.2 虛擬印表機 Printer_Roaming 安裝 (使用者列印佇列)
   
 ### 2.3 實體印表機 (漫游列印印表機)
