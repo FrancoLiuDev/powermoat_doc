@@ -85,6 +85,25 @@ def copy_images_to_local(html_file, output_dir, source_images_dir):
     # 更新HTML中的图片路径为相对路径
     updated_content = html_content.replace(IMAGE_BASE_URL, 'images/')
     
+    # 添加CSS样式限制图片最大宽度为80%
+    css_style = '''
+<style>
+img {
+    max-width: 80%;
+    height: auto;
+    display: block;
+    margin: 10px 0;
+}
+</style>
+'''
+    
+    # 在</head>前插入CSS样式
+    if '</head>' in updated_content:
+        updated_content = updated_content.replace('</head>', css_style + '</head>')
+    elif '<body>' in updated_content:
+        # 如果没有</head>，在<body>前插入
+        updated_content = updated_content.replace('<body>', css_style + '<body>')
+    
     return updated_content, copied_count
 
 def pack_html_with_images(input_file, output_dir=None, source_images_dir='images'):

@@ -103,3 +103,5 @@ http://localhost/html/doc/root/PSS_WEB_APP/
 python3 tools/root_to_html.py
 
 python3 tools/pack_html.py 
+
+python3 tools/pack_html_with_images.py /tmp/mantis_temp.html dist_html
