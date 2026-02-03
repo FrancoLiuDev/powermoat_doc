@@ -101,3 +101,5 @@ python3 -m http.server 8000
 http://localhost/html/doc/root/PSS_WEB_APP/
 
 python3 tools/root_to_html.py
+
+python3 tools/pack_html.py 
