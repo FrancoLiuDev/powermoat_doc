@@ -104,4 +104,4 @@ python3 tools/root_to_html.py
 
 python3 tools/pack_html.py 
 
-python3 tools/pack_html_with_images.py /tmp/mantis_temp.html dist_html
+python3 tools/pack_md_to_html.py others/SUPPORT/MANTIS.md
