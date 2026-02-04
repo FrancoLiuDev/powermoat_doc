@@ -16,7 +16,7 @@ PSS列印伺服器(PSS Server) 基本設定,列印漫游設定主要分為兩部
 
 ### 1.2 作業需求
 
-- N/A
+- 需在 Printer Server 安裝 Windows Server LPR/LPD 服務,請參考說明 [Windows Server LPR 安裝]
 
 ## 2、設定前環境準備
 
@@ -66,21 +66,38 @@ PSS列印伺服器(PSS Server) 基本設定,列印漫游設定主要分為兩部
   
   [![image](http://#@ip/html/doc/images/A0003/0002.png)](http://#@ip/html/doc/images/A0003/0002.png)
 
-- 選摜建立 Standard TCP/IP Port (New port)
+- 選擇建立 LPR Port (New LPR Port)
   
   #@img_A0003/0012.png
-
-- 開啟 Print Server -> ports 項目,使用 Add Port
+  
+- 輸入 IP 以及 Printer Name  
+  
+  IP: 本機 IP
+  Printer Name: 己建立的虛擬印表機名稱  (Printer_Roaming_LPR)
   
   #@img_A0003/0013.png
 
-- 輸入 IP 以及 Port Name
-  
-  IP: 本機 IP
-  Port Name: 己建立的虛擬印表機名稱  (Printer_Roaming_LPR)
-  
+- 操作完成後檢查是否有新增一個 Port
+
+  #@img_A0003/0014.png
+
 ### 2.2 虛擬印表機 Printer_Roaming 安裝 (使用者列印佇列)
-  
+
+- 打開 Print Server -> Printers項目,操作 Add Printer
+
+  #@img_A0003/0005.png
+
+- 選擇 Add a new printer using an existing port -> xxx.xxx.xxx.xxx:Printer_Roaming_LPR
+
+  #@img_A0003/0015.png
+
+- 選擇印表機 Driver
+
+  #@img_A0003/0016.png
+
+- 輸入虛擬印表機名稱 ex.Printer_Roaming (此印表機名稱是提供使用者漫游列印的對象)
+
+
 ### 2.3 實體印表機 (漫游列印印表機)
 
 - 開啟 Print Management 軟體界面
