@@ -108,4 +108,4 @@ python3 tools/pack_md_to_html.py others/SUPPORT/MANTIS.md
 
 把 PowerMoat管理系統維運手冊_v20250827裡 使用者帳號維護的內容獨立出來到  root/使用者管理設定/使用者帳號維護.md 把圖放在images/U0001
 
-把 PowerMoat管理系統維運手冊_v20250827裡 使用者群組維護的內容獨立出來到 root/使用者管理設定/使用者群組維護.md 把圖放在images/U0002
+把 PowerMoat管理系統維運手冊_v20250827裡 部門資料維護的內容獨立出來到 root/使用者管理設定/使用者群組維護.md 把圖放在images/U0003
