@@ -47,7 +47,7 @@
 </ul>
 <h3 id="作業需求">1.2 作業需求</h3>
 <ul>
-<li>N/A</li>
+<li>需在 Printer Server 安裝 Windows Server LPR/LPD 服務,請參考說明 [Windows Server LPR 安裝]</li>
 </ul>
 <h2 id="設定前環境準備-1">2、設定前環境準備</h2>
 <h3 id="虛擬印表機-printer_roaming_lpr-安裝-使用者列印佇列">2.1 虛擬印表機 Printer_Roaming_LPR 安裝 (使用者列印佇列)</h3>
@@ -74,14 +74,24 @@
 <p><a href="http://124.218.37.90/html/doc/images/A0003/0011.png"><img src="http://124.218.37.90/html/doc/images/A0003/0011.png" alt="image" /></a></p></li>
 <li><p>開啟 Print Server -&gt; ports 項目,使用 Add Port</p>
 <p><a href="http://124.218.37.90/html/doc/images/A0003/0002.png"><img src="http://124.218.37.90/html/doc/images/A0003/0002.png" alt="image" /></a></p></li>
-<li><p>選擇建立 Standard TCP/IP Port (New port)</p>
+<li><p>選擇建立 LPR Port (New LPR Port)</p>
 <p><a href="http://124.218.37.90/html/doc/images/A0003/0012.png"><img src="http://124.218.37.90/html/doc/images/A0003/0012.png" alt="image" /></a></p></li>
-<li><p>開啟 Print Server -&gt; ports 項目,使用 Add Port</p>
+<li><p>輸入 IP 以及 Printer Name</p>
+<p>IP: 本機 IP Printer Name: 己建立的虛擬印表機名稱 (Printer_Roaming_LPR)</p>
 <p><a href="http://124.218.37.90/html/doc/images/A0003/0013.png"><img src="http://124.218.37.90/html/doc/images/A0003/0013.png" alt="image" /></a></p></li>
-<li><p>輸入 IP 以及 Port Name</p>
-<p>IP: 本機 IP Port Name: 己建立的虛擬印表機名稱 (Printer_Roaming_LPR)</p></li>
+<li><p>操作完成後檢查是否有新增一個 Port</p>
+<p><a href="http://124.218.37.90/html/doc/images/A0003/0014.png"><img src="http://124.218.37.90/html/doc/images/A0003/0014.png" alt="image" /></a></p></li>
 </ul>
 <h3 id="虛擬印表機-printer_roaming-安裝-使用者列印佇列">2.2 虛擬印表機 Printer_Roaming 安裝 (使用者列印佇列)</h3>
+<ul>
+<li><p>打開 Print Server -&gt; Printers項目,操作 Add Printer</p>
+<p><a href="http://124.218.37.90/html/doc/images/A0003/0005.png"><img src="http://124.218.37.90/html/doc/images/A0003/0005.png" alt="image" /></a></p></li>
+<li><p>選擇 Add a new printer using an existing port -&gt; xxx.xxx.xxx.xxx:Printer_Roaming_LPR</p>
+<p><a href="http://124.218.37.90/html/doc/images/A0003/0015.png"><img src="http://124.218.37.90/html/doc/images/A0003/0015.png" alt="image" /></a></p></li>
+<li><p>選擇印表機 Driver</p>
+<p><a href="http://124.218.37.90/html/doc/images/A0003/0016.png"><img src="http://124.218.37.90/html/doc/images/A0003/0016.png" alt="image" /></a></p></li>
+<li><p>輸入虛擬印表機名稱 ex.Printer_Roaming (此印表機名稱是提供使用者漫游列印的對象)</p></li>
+</ul>
 <h3 id="實體印表機-漫游列印印表機">2.3 實體印表機 (漫游列印印表機)</h3>
 <ul>
 <li>開啟 Print Management 軟體界面</li>
