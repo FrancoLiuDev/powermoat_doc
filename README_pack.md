@@ -108,5 +108,5 @@ python3 tools/pack_md_to_html.py others/SUPPORT/MANTIS.md
 
 把 PowerMoat管理系統維運手冊_v20250827裡 使用者帳號維護的內容獨立出來到  root/使用者管理設定/使用者帳號維護.md 把圖放在images/U0001
 
-把 PowerMoat管理系統維運手冊_v20250827裡 關鍵字維護的內容獨立出來到 root/稽核/關鍵字維護.md 把圖放在images/AD0006
+把 PowerMoat管理系統維運手冊_v20250827裡 列印審核中 部門審核者進行審核作業 的內容獨立出來到 root/列印審核/部門審核者進行審核作業.md 把圖放在images/PRTAD0004
 
