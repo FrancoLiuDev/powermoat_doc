@@ -1,11 +1,11 @@
-# Whitelist Maintenance
+# Whitelist_Maintenance
 
-![One containing text, software, number, screenshot image AI generated content may be incorrect.](../../images/AD0001/image145.png){width="5.768055555555556in" height="1.6090277777777777in"}
+  #@img_AD0001/image145.png
 
-Audit administrators can set whitelists according to requirements. Accounts on the whitelist will not be subject to four-process backup operations.
+Audit Manager可依據Requirements設定白名單，白名單的Account將不performFour-factor backup operation。
 
-## [Add]: Grant an account whitelist status
+## [Add]：Assign一個Account具備白名單
 
-Example: Assign whitelist status to 'peterlai'
+Example: Assign peterlai to whitelist
 
-![One containing text, software, screenshot image AI generated content may be incorrect.](../../images/AD0001/image146.png){width="5.768055555555556in" height="2.198611111111111in"}
+  #@img_AD0001/image146.png
