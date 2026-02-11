@@ -28,7 +28,7 @@ N/A
   
   #@img_A0004/0005.png
 
-- 選擇 Have Disk -> Open Fuji driver folder
+- Select Have Disk -> Open Fuji driver folder
 
   #@img_A0004/0006.png
 

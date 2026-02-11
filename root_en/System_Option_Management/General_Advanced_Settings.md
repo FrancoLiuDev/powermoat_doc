@@ -1,4 +1,4 @@
-# 一般 (進階設定)
+# General (Advanced Settings)
 
   #@img_SYS0004/image18.png
 

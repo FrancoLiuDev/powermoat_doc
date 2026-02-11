@@ -1,21 +1,21 @@
-# 列印伺服器
+# Print Server
 
   #@img_SYS0001/image13.png
 
-資安列印系統的伺服器設定
+Security Print System Server Settings
 
-- 系統支援多台伺服器 PSS Server
+- System supports multiple servers PSS Server
 
-- 每台 PSS Server提供以下功能
+- Each PSS Server provides the following functions
 
-  - Printer Server - 控制多台印表機
+  - Printer Server - Controls multiple printers
 
-  - 控制印表機 Printer Queue
+  - Controls Printer Queue
 
-  - 收取列印、影印、掃描、傳真的影像檔案
+  - Receives print, copy, scan, and fax image files
 
-  - 影像檔案 OCR辨識、比對"資安關鍵詞"，產生風險指數
+  - Image file OCR recognition, matching 'security keywords', generating risk index
 
-**列印伺服器設定 -- 內容**
+**Print Server Settings -- Content**
 
   #@img_SYS0001/image14.png

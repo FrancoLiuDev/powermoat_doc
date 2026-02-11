@@ -24,6 +24,6 @@
 
 **cell phoneNumber: 09\\d{8}**
 
-**修改關鍵字：選擇要修改的關鍵字，點擊 [Edit Icon]** **直接performEdit。**
+**修改關鍵字：Select要修改的關鍵字，點擊 [Edit Icon]** **直接performEdit。**
 
   #@img_AD0006/image122.png

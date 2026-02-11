@@ -1,4 +1,4 @@
-# User資料匯入
+# User Data Import
 
 Function Description: 2 ways to import user data
 
@@ -6,11 +6,11 @@ Function Description: 2 ways to import user data
 
 - **File Import**
 
-## User資料匯入 > [Employee Data Import]：Set Employee Data Import PSS System User Schedule
+## User Data Import > [Employee Data Import]：Set Employee Data Import PSS System User Schedule
 
   #@img_U0004/image64.png
 
-## User資料匯入 > [File Import]：Set File Import PSS System User Schedule
+## User Data Import > [File Import]：Set File Import PSS System User Schedule
 
   #@img_U0004/image65.png
 

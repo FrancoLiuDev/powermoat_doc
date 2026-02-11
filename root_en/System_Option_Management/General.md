@@ -13,7 +13,7 @@
 
 -   View Document Image Watermark：☑
 
--   調閱文件ImageSecurity模式：Disable/ PINCODE/ Dual Authentication
+-   View Document Image Security Mode：Disable/ PINCODE/ Dual Authentication
 
 -   **Print Queue: Time (minutes) roaming print documents remain in queue**
 
@@ -26,7 +26,7 @@ Retention Time (min): Max 3 digits
 
 -   Quota Category: Close/Single Point/Black White Color Points, quota can control individual monthly print volume.
 
--   選擇：Single Point/BW/Color Points Function list will enable [Quota Role Maintenance]。 (Re-login required)
+-   Select：Single Point/BW/Color Points Function list will enable [Quota Role Maintenance]。 (Re-login required)
 
 **Password Policy Management: Formulate policy principles for PowerMoat system account passwords**
 
@@ -56,6 +56,6 @@ Retention Time (min): Max 3 digits
 
 See: [一般排程](General_Schedule.md)
 
-### General (進階設定)
+### General (Advanced Settings)
 
 See: [一般進階設定](General_Advanced_Settings.md)

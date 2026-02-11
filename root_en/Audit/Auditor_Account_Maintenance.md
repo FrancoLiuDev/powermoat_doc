@@ -1,6 +1,6 @@
-# AuditorAccount維護
+# Auditor Account Maintenance
 
-**AuditorAccount維護。**
+**Auditor Account Maintenance。**
 
   #@img_AD0002/image142.png
 

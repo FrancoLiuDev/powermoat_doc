@@ -6,7 +6,7 @@
 
 **Print Quota Setting Note: When setting print quota, both the printing personnel and their department must have quota to be authorized to print.**
 
-**[Add]：建立一個新的額度角色**
+**[Add]：Create a new quota role**
 
 **Example: Create a general quota role normal_quota: 1000 points per month**
 
@@ -14,7 +14,7 @@
 
 **Quota Role: Can be applied to user groups and departments.**
 
-**新增後，EnterEdit詳細資料**
+**After adding, Enter Edit details**
 
   #@img_SYS0005/image21.png
 
