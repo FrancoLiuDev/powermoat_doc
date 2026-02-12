@@ -22,7 +22,7 @@ PSS Print Server (PSS Server) basic settings, print roaming settings are mainly 
 
 ### 2.1 Virtual Printer Printer_Roaming_LPR Installation (User Print Queue)
 
-- 開啟 Print Management softwareInterface
+- Open Print Management softwareInterface
 
   #@img_A0003/0001.png
 
@@ -99,5 +99,5 @@ PSS Print Server (PSS Server) basic settings, print roaming settings are mainly 
 
 ### 2.3 Physical Printer (Roaming Print Printer)
 
-- 開啟 Print Management softwareInterface
+- Open Print Management softwareInterface
 -

@@ -31,7 +31,7 @@ def convert_md_to_html(md_file, output_dir, base_dir):
     # 例如: #@img_A0004/0011.png -> [![image](http://STATIC_IP/html/doc/images/A0004/0011.png)](http://STATIC_IP/html/doc/images/A0004/0011.png)
     def replace_image_path(match):
         img_path = match.group(1)
-        full_url = f"http://{STATIC_IP}/html/doc/images/{img_path}"
+        full_url = f"http://{STATIC_IP}/html/en/images/{img_path}"
         return f"[![image]({full_url})]({full_url})"
     
     content = re.sub(r'#@img_([^\s]+)', replace_image_path, content)
