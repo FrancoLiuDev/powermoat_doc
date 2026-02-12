@@ -24,11 +24,11 @@ PSS列印伺服器(PSS Server) 基本設定,列印漫游設定主要分為兩部
 
 - 開啟 Print Management 軟體界面
 
-  [![image](http://#@ip/html/doc/images/A0003/0001.png)](http://#@ip/html/doc/images/A0003/0001.png)
+    #@img_A0003/0001.png
 
 - 開啟 Print Server -> ports 項目,使用 Add Port
 
-  [![image](http://#@ip/html/doc/images/A0003/0002.png)](http://#@ip/html/doc/images/A0003/0002.png)
+    #@img_A0003/0002.png
 
 - 接續選擇 Add Port -> Local Port -> Port Name (nil) -> Close
   
@@ -64,7 +64,8 @@ PSS列印伺服器(PSS Server) 基本設定,列印漫游設定主要分為兩部
 
 - 開啟 Print Server -> ports 項目,使用 Add Port
   
-  [![image](http://#@ip/html/doc/images/A0003/0002.png)](http://#@ip/html/doc/images/A0003/0002.png)
+  #@img_A0003/0002.png
+
 
 - 選擇建立 LPR Port (New LPR Port)
   
@@ -97,8 +98,7 @@ PSS列印伺服器(PSS Server) 基本設定,列印漫游設定主要分為兩部
 
 - 輸入虛擬印表機名稱 ex.Printer_Roaming (此印表機名稱是提供使用者漫游列印的對象)
 
-
 ### 2.3 實體印表機 (漫游列印印表機)
 
 - 開啟 Print Management 軟體界面
-- 
+-

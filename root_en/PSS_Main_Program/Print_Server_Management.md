@@ -19,13 +19,13 @@ PSS Print Server (PSS Server) basic settings, service status, and field definiti
 - Print server maintenance includes the following functional uses
   
   #### Server Service Status Prompt
-  
-  [![image](http://#@ip/html/doc/images/A0002/0001.png)](http://#@ip/html/doc/images/A0002/0001.png)
+
+  #@img_A0002/0001.png
 
   #### Server Printer Count Prompt/Operation
   
-  [![image](http://#@ip/html/doc/images/A0002/0002.png)](http://#@ip/html/doc/images/A0002/0002.png)
-  
+  #@img_A0002/0002.png
+
   #### Server Settings
 
-  [![image](http://#@ip/html/doc/images/A0002/0003.png)](http://#@ip/html/doc/images/A0002/0003.png)
+  #@img_A0002/0003.png
