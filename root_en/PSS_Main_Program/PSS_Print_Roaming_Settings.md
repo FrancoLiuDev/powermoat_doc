@@ -24,11 +24,11 @@ PSS Print Server (PSS Server) basic settings, print roaming settings are mainly 
 
 - 開啟 Print Management softwareInterface
 
-  [![image](http://#@ip/html/doc/images/A0003/0001.png)](http://#@ip/html/doc/images/A0003/0001.png)
+  #@img_A0003/0001.png
 
 - Open Print Server -> ports item, use Add Port
 
-  [![image](http://#@ip/html/doc/images/A0003/0002.png)](http://#@ip/html/doc/images/A0003/0002.png)
+  #@img_A0003/0002.png
 
 - Continue to select Add Port -> Local Port -> Port Name (nil) -> Close
   
@@ -63,8 +63,8 @@ PSS Print Server (PSS Server) basic settings, print roaming settings are mainly 
   #@img_A0003/0011.png
 
 - Open Print Server -> ports item, use Add Port
-  
-  [![image](http://#@ip/html/doc/images/A0003/0002.png)](http://#@ip/html/doc/images/A0003/0002.png)
+
+  #@img_A0003/0002.png
 
 - Select Create LPR Port (New LPR Port)
   
@@ -97,8 +97,7 @@ PSS Print Server (PSS Server) basic settings, print roaming settings are mainly 
 
 - Input virtual printer name ex.Printer_Roaming (This printer name is the target for user roaming print)
 
-
 ### 2.3 Physical Printer (Roaming Print Printer)
 
 - 開啟 Print Management softwareInterface
-- 
+-
