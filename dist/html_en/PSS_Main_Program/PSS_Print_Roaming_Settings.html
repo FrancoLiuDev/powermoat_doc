@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>PSS_Print_Roaming_Settings</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">PSS_Print_Roaming_Settings</h1>
+</header>
+<nav id="TOC">
+<ul>
+<li><a href="#pss-powermoat-print-roaming-settings">PSS Powermoat Print Roaming Settings</a><ul>
+<li><a href="#project-overview">Project Overview</a></li>
+<li><a href="#environment-preparation-before-setup">1. Environment Preparation Before Setup</a><ul>
+<li><a href="#hardware-requirements">1.1 Hardware Requirements</a></li>
+<li><a href="#operational-requirements">1.2 Operational Requirements</a></li>
+</ul></li>
+<li><a href="#environment-preparation-before-setup-1">2. Environment Preparation Before Setup</a><ul>
+<li><a href="#virtual-printer-printer_roaming_lpr-installation-user-print-queue">2.1 Virtual Printer Printer_Roaming_LPR Installation (User Print Queue)</a></li>
+<li><a href="#virtual-printer-printer_roaming-installation-user-print-queue">2.2 Virtual Printer Printer_Roaming Installation (User Print Queue)</a></li>
+<li><a href="#physical-printer-roaming-print-printer">2.3 Physical Printer (Roaming Print Printer)</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="pss-powermoat-print-roaming-settings">PSS Powermoat Print Roaming Settings</h1>
+<h2 id="project-overview">Project Overview</h2>
+<p>PSS Print Server (PSS Server) basic settings, print roaming settings are mainly divided into two parts</p>
+<ul>
+<li><p>Virtual Printer Queue Installation (Installation of two virtual printers: Roaming LPR, Roaming)</p></li>
+<li><p>Roaming print dispatched to physical printers (N units)</p></li>
+</ul>
+<h2 id="environment-preparation-before-setup">1. Environment Preparation Before Setup</h2>
+<h3 id="hardware-requirements">1.1 Hardware Requirements</h3>
+<ul>
+<li>Physical printers require IP for each printer and a set printer password</li>
+</ul>
+<h3 id="operational-requirements">1.2 Operational Requirements</h3>
+<ul>
+<li>Please install Windows Server LPR/LPD service on Printer Server, refer to instructions [Windows Server LPR Installation]</li>
+</ul>
+<h2 id="environment-preparation-before-setup-1">2. Environment Preparation Before Setup</h2>
+<h3 id="virtual-printer-printer_roaming_lpr-installation-user-print-queue">2.1 Virtual Printer Printer_Roaming_LPR Installation (User Print Queue)</h3>
+<ul>
+<li><p>開啟 Print Management softwareInterface</p>
+<p><a href="http://124.218.37.90/html/en/images/A0003/0001.png"><img src="http://124.218.37.90/html/en/images/A0003/0001.png" alt="image" /></a></p></li>
+<li><p>Open Print Server -&gt; ports item, use Add Port</p>
+<p><a href="http://124.218.37.90/html/en/images/A0003/0002.png"><img src="http://124.218.37.90/html/en/images/A0003/0002.png" alt="image" /></a></p></li>
+<li><p>Continue to select Add Port -&gt; Local Port -&gt; Port Name (nil) -&gt; Close</p>
+<p><a href="http://124.218.37.90/html/en/images/A0003/0004.png"><img src="http://124.218.37.90/html/en/images/A0003/0004.png" alt="image" /></a></p>
+<p>Users should see a new Port (nil); if not displayed, please operate again</p></li>
+<li><p>Open Print Server -&gt; Printers item, operate Add Printer</p>
+<p><a href="http://124.218.37.90/html/en/images/A0003/0005.png"><img src="http://124.218.37.90/html/en/images/A0003/0005.png" alt="image" /></a></p></li>
+<li><p>Select Add a new printer using an existing port -&gt; nil (Local port)</p>
+<p><a href="http://124.218.37.90/html/en/images/A0003/0006.png"><img src="http://124.218.37.90/html/en/images/A0003/0006.png" alt="image" /></a></p></li>
+<li><p>Select “Use an existing printer driver on the computer”</p>
+<p><a href="http://124.218.37.90/html/en/images/A0003/0007.png"><img src="http://124.218.37.90/html/en/images/A0003/0007.png" alt="image" /></a></p></li>
+<li><p>Input settings</p>
+<p>Printer Name (Printer_Roaming_LPR)</p>
+<p>Share this printer (Yes)</p>
+<p><a href="http://124.218.37.90/html/en/images/A0003/0008.png"><img src="http://124.218.37.90/html/en/images/A0003/0008.png" alt="image" /></a></p>
+<p><a href="http://124.218.37.90/html/en/images/A0003/0009.png"><img src="http://124.218.37.90/html/en/images/A0003/0009.png" alt="image" /></a></p>
+<p><a href="http://124.218.37.90/html/en/images/A0003/0010.png"><img src="http://124.218.37.90/html/en/images/A0003/0010.png" alt="image" /></a></p>
+<p><a href="http://124.218.37.90/html/en/images/A0003/0011.png"><img src="http://124.218.37.90/html/en/images/A0003/0011.png" alt="image" /></a></p></li>
+<li><p>Open Print Server -&gt; ports item, use Add Port</p>
+<p><a href="http://124.218.37.90/html/en/images/A0003/0002.png"><img src="http://124.218.37.90/html/en/images/A0003/0002.png" alt="image" /></a></p></li>
+<li><p>Select Create LPR Port (New LPR Port)</p>
+<p><a href="http://124.218.37.90/html/en/images/A0003/0012.png"><img src="http://124.218.37.90/html/en/images/A0003/0012.png" alt="image" /></a></p></li>
+<li><p>Input IP and Printer Name</p>
+<p>IP: Local IP Printer Name: Name of the created virtual printer (Printer_Roaming_LPR)</p>
+<p><a href="http://124.218.37.90/html/en/images/A0003/0013.png"><img src="http://124.218.37.90/html/en/images/A0003/0013.png" alt="image" /></a></p></li>
+<li><p>After operation, check if a new Port is added</p>
+<p><a href="http://124.218.37.90/html/en/images/A0003/0014.png"><img src="http://124.218.37.90/html/en/images/A0003/0014.png" alt="image" /></a></p></li>
+</ul>
+<h3 id="virtual-printer-printer_roaming-installation-user-print-queue">2.2 Virtual Printer Printer_Roaming Installation (User Print Queue)</h3>
+<ul>
+<li><p>Open Print Server -&gt; Printers item, operate Add Printer</p>
+<p><a href="http://124.218.37.90/html/en/images/A0003/0005.png"><img src="http://124.218.37.90/html/en/images/A0003/0005.png" alt="image" /></a></p></li>
+<li><p>Select Add a new printer using an existing port -&gt; xxx.xxx.xxx.xxx:Printer_Roaming_LPR</p>
+<p><a href="http://124.218.37.90/html/en/images/A0003/0015.png"><img src="http://124.218.37.90/html/en/images/A0003/0015.png" alt="image" /></a></p></li>
+<li><p>Select Printer Driver</p>
+<p><a href="http://124.218.37.90/html/en/images/A0003/0016.png"><img src="http://124.218.37.90/html/en/images/A0003/0016.png" alt="image" /></a></p></li>
+<li><p>Input virtual printer name ex.Printer_Roaming (This printer name is the target for user roaming print)</p></li>
+</ul>
+<h3 id="physical-printer-roaming-print-printer">2.3 Physical Printer (Roaming Print Printer)</h3>
+<ul>
+<li>開啟 Print Management softwareInterface</li>
+<li></li>
+</ul>
+</body>
+</html>
