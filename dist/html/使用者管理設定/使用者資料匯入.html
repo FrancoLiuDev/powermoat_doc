@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>使用者資料匯入</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">使用者資料匯入</h1>
+</header>
+<nav id="TOC">
+<ul>
+<li><a href="#使用者資料匯入">使用者資料匯入</a><ul>
+<li><a href="#使用者資料匯入-員工資料匯入設定員工資料匯入-pss系統使用者排程">使用者資料匯入 &gt; [員工資料匯入]：設定員工資料匯入 PSS系統使用者排程</a></li>
+<li><a href="#使用者資料匯入-檔案匯入設定檔案匯入-pss系統使用者排程">使用者資料匯入 &gt; [檔案匯入]：設定檔案匯入 PSS系統使用者排程</a></li>
+<li><a href="#計畫排程的設定">計畫排程的設定</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="使用者資料匯入">使用者資料匯入</h1>
+<p>功能說明：使用者資料2種匯入方式</p>
+<ul>
+<li><p><strong>員工資料匯入</strong></p></li>
+<li><p><strong>檔案匯入</strong></p></li>
+</ul>
+<h2 id="使用者資料匯入-員工資料匯入設定員工資料匯入-pss系統使用者排程">使用者資料匯入 &gt; [員工資料匯入]：設定員工資料匯入 PSS系統使用者排程</h2>
+<p><a href="http://124.218.37.90/html/tw/images/U0004/image64.png"><img src="http://124.218.37.90/html/tw/images/U0004/image64.png" alt="image" /></a></p>
+<h2 id="使用者資料匯入-檔案匯入設定檔案匯入-pss系統使用者排程">使用者資料匯入 &gt; [檔案匯入]：設定檔案匯入 PSS系統使用者排程</h2>
+<p><a href="http://124.218.37.90/html/tw/images/U0004/image65.png"><img src="http://124.218.37.90/html/tw/images/U0004/image65.png" alt="image" /></a></p>
+<p><strong>選取匯入檔案後，要按下 [套用] 按鈕，方會有效。</strong></p>
+<h2 id="計畫排程的設定">計畫排程的設定</h2>
+<p><strong>參考：<a href="https://en.wikipedia.org/wiki/Cron">https://en.wikipedia.org/wiki/Cron</a></strong></p>
+<p><strong># ┌────────────── 分鐘 (0 - 59)</strong></p>
+<p><strong># │ ┌────────────── 小時 (0 - 23)</strong></p>
+<p><strong># │ │ ┌────────────── 一個月中的第幾天 (1 - 31)</strong></p>
+<p><strong># │ │ │ ┌────────────── 月（1 - 12）</strong></p>
+<p><strong># │ │ │ │ ┌────────────── 星期幾（0 - 6）（週日至週六）</strong></p>
+<p><strong># │ │ │ │ 7 星期六</strong></p>
+<p><strong># │ │ │ │ │</strong></p>
+<p><strong># </strong> ** ***</p>
+<p>例：每個星期六的 23:45（晚上 11:45）運行 <strong>45 23 * * 6</strong></p>
+</body>
+</html>
