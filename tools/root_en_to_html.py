@@ -14,6 +14,88 @@ import re
 # ========== 靜態參數設定 ==========
 # 將所有文件中的 IP 替換為此靜態 IP
 STATIC_IP = "124.218.37.90"
+
+# ========== Sorting Configuration ==========
+# Define folder display order (folders not listed will appear at the end)
+FOLDER_ORDER = [
+    "PSS_Main_Program",
+    "System_Option_Management",
+    "Management_Guide",
+    "Printer_Settings_and_Drivers",
+    "Printer_Management",
+    "User_Management_Settings",
+    "Reports",
+    "Print_Audit",
+    "Audit",
+]
+
+# Define file display order within specific folders (files not listed will appear at the end)
+# Format: "FolderName": ["FileStem1", "FileStem2"...]
+FILE_ORDER = {
+    "PSS_Main_Program": [
+        "PSS_Print_Roaming_Main_Program",
+        "PSS_Print_Roaming_Settings",
+        "Print_Server_Management"
+    ],
+    #
+    "User_Management_Settings": [
+        "Application_System_Role_Description",
+        "User_Group_Concept",
+        "User_Account_Maintenance",
+        "User_Group_Maintenance",
+        "User_Group_Change",
+        "User_Role_Change",
+        "User_Data_Import",
+        "Employee_Data_Maintenance",
+        "Department_Data_Maintenance",
+        "Permission_Control_Simulation_Scenario"
+    ],
+    "Print_Audit": [
+        "Enable_Document_Audit",
+        "Audit_Enable_No_Watermark_Printer",
+        "Department_Audit",
+        "Department_Auditor_Operation"
+    ],
+    "Printer_Management": [
+        "Printer_Management_Maintenance",
+        "Printer_Group_Maintenance",
+        "Roaming_Print_Device_Permission_Control",
+        "Device_Management_Maintenance"
+    ],
+    "Printer_Settings_and_Drivers": [
+        "Driver_Installation_FUJI",
+        "Driver_Installation_HP"
+    ],
+    "Reports": [
+        "Standard_Reports",
+        "Report_Schedule"
+    ],
+    "Audit": [
+        "Whitelist_Maintenance",
+        "Audit_Print_Record",
+        "Auditor_Account_Maintenance",
+        "Audit_Rule_Maintenance",
+        "Notification_Event_Record",
+        "Keyword_Maintenance"
+    ],
+    "Management_Guide": [
+        "Related_Services"
+    ],
+    "System_Option_Management": [
+        "OCR",
+        "General",
+        "General_Schedule",
+        "General_Advanced_Settings",
+        "Code_File_Maintenance",
+        "Print_Server",
+        "Print_Cost_Maintenance",
+        "Print_Permission_Maintenance",
+        "Watermark",
+        "System_Records",
+        "Notification",
+        "Quota_Role_Maintenance"
+    ]
+}
 # ==================================
 
 def convert_md_to_html(md_file, output_dir, base_dir):
@@ -61,7 +143,8 @@ def convert_md_to_html(md_file, output_dir, base_dir):
         '--toc',
         '--toc-depth=3',
         '--metadata', f'title={md_path.stem}',
-        '--css', 'https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css'
+        '--css', 'https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css',
+        '-V', 'header-includes=<style>body { box-sizing: border-box; min-width: 200px; max-width: 80%; margin: 0 auto; padding: 45px; } @media (max-width: 767px) { body { padding: 15px; } }</style>'
     ]
     
     try:
@@ -107,11 +190,11 @@ def create_index_html(output_dir, html_files, base_dir):
             file_tree['root'].append(rel_path)
     
     html_content = """<!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>文件索引</title>
+    <title>Document Index</title>
     <style>
         * {
             margin: 0;
@@ -199,13 +282,32 @@ def create_index_html(output_dir, html_files, base_dir):
 <body>
     <div class="container">
         <div class="header">
-            <h1>📚 文件索引</h1>
-            <p>選擇要查看的文件</p>
+            <h1>📚 Document Index</h1>
+            <p>Select a document to view</p>
         </div>
 """
     
-    # 添加文件列表
-    for folder, files in sorted(file_tree.items()):
+    # Helper: Get folder sort weight
+    def get_folder_weight(item):
+        folder_name = item[0]
+        try:
+            return (0, FOLDER_ORDER.index(folder_name), folder_name)
+        except ValueError:
+            return (1, 0, folder_name) # Undefined ones go last
+
+    # Helper: Get file sort weight
+    def get_file_weight(file_path, current_folder):
+        file_stem = file_path.stem
+        # Check if there is specific ordering for this folder and file
+        if current_folder in FILE_ORDER:
+            try:
+                return (0, FILE_ORDER[current_folder].index(file_stem), file_stem)
+            except ValueError:
+                pass
+        return (1, 0, file_stem) # Undefined ones go last
+
+    # Add file list
+    for folder, files in sorted(file_tree.items(), key=get_folder_weight):
         html_content += f"""
         <div class="folder">
             <div class="folder-title">
@@ -214,7 +316,7 @@ def create_index_html(output_dir, html_files, base_dir):
             </div>
             <ul class="file-list">
 """
-        for file_path in sorted(files):
+        for file_path in sorted(files, key=lambda f: get_file_weight(f, folder)):
             file_name = file_path.stem
             html_content += f"""
                 <li class="file-item">

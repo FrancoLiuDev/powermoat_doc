@@ -14,6 +14,88 @@ import re
 # ========== 靜態參數設定 ==========
 # 將所有文件中的 IP 替換為此靜態 IP
 STATIC_IP = "124.218.37.90"
+
+# ========== 排序設定 ==========
+# 定義目錄顯示順序 (未列出的將會排在最後, 按字母順序)
+FOLDER_ORDER = [
+    "PSS主程式",
+    "系統選項管理",
+    "管理指南",
+    "印表機設定及驅動",
+    "印表機管理",
+    "使用者管理設定",
+    "報表",
+    "列印審核",
+    "稽核",
+]
+
+# 定義特定目錄下的檔案顯示順序 (未列出的將會排在最後, 按字母順序)
+# 格式: "目錄名": ["檔案名1", "檔案名2"...] (不含 .html 副檔名)
+FILE_ORDER = {
+    "PSS主程式": [
+        "PSS_漫遊列印_主程式", 
+        "PSS列印漫游設定", 
+        "列印伺服器管理"
+    ],
+    "使用者管理設定": [
+        "應用系統角色說明", 
+        "使用者群組觀念說明", 
+        "使用者帳號維護", 
+        "使用者群組維護", 
+        "使用者群組異動",   
+        "使用者角色異動", 
+        "使用者資料匯入", 
+        "員工資料維護", 
+        "部門資料維護",
+        "權限管控模擬情境", 
+        
+    ],
+    "列印審核": [
+        "啟用文件審核", 
+        "無浮水印之印表機啟用審核", 
+        "部門審核", 
+        "部門審核者進行審核作業"
+    ],
+    "印表機管理": [
+        "印表機管理維護", 
+        "印表機群組維護", 
+        "漫遊列印_裝置權限管控", 
+        "裝置管理維護"
+    ],
+    "印表機設定及驅動": [
+        "驅動程式安裝_FUJI", 
+        "驅動程式安裝_HP"
+    ],
+    "報表": [
+        "制式報表", 
+        "報表排程"
+    ],
+    "稽核": [
+        "白名單維護", 
+        "稽核列印紀錄", 
+        "稽核員帳號維護", 
+        "稽核規則維護", 
+        "通報事件紀錄", 
+        "關鍵字維護"
+    ],
+    "管理指南": [
+        "相關服務"
+    ],
+    "系統選項管理": [
+        "OCR", 
+        "一般", 
+        "一般排程", 
+        "一般進階設定", 
+        "代碼檔維護", 
+        "列印伺服器", 
+        "列印成本維護", 
+        "列印權限維護", 
+        "浮水印", 
+        "系統紀錄", 
+        "通知", 
+        "額度角色維護"
+    ]
+}
 # ==================================
 
 def convert_md_to_html(md_file, output_dir, base_dir):
@@ -204,8 +286,27 @@ def create_index_html(output_dir, html_files, base_dir):
         </div>
 """
     
+    # 輔助函數：取得目錄排序權重
+    def get_folder_weight(item):
+        folder_name = item[0]
+        try:
+            return (0, FOLDER_ORDER.index(folder_name), folder_name)
+        except ValueError:
+            return (1, 0, folder_name) # 未定義的排在最後
+
+    # 輔助函數：取得檔案排序權重
+    def get_file_weight(file_path, current_folder):
+        file_stem = file_path.stem
+        # 檢查是否有針對此目錄及檔案的排序設定
+        if current_folder in FILE_ORDER:
+            try:
+                return (0, FILE_ORDER[current_folder].index(file_stem), file_stem)
+            except ValueError:
+                pass
+        return (1, 0, file_stem) # 未定義的排在最後
+
     # 添加文件列表
-    for folder, files in sorted(file_tree.items()):
+    for folder, files in sorted(file_tree.items(), key=get_folder_weight):
         html_content += f"""
         <div class="folder">
             <div class="folder-title">
@@ -214,7 +315,8 @@ def create_index_html(output_dir, html_files, base_dir):
             </div>
             <ul class="file-list">
 """
-        for file_path in sorted(files):
+        # 使用 lambda 包裝 current_folder
+        for file_path in sorted(files, key=lambda f: get_file_weight(f, folder)):
             file_name = file_path.stem
             html_content += f"""
                 <li class="file-item">

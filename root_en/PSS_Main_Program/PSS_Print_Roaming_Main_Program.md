@@ -29,7 +29,7 @@ Install roaming print main program, including backend, database, and frontend pr
     .\pss_system_install.ps1
     ```
 
-  - 選取安裝 SQL Express ,and select all PSS services
+  - Select SQL Express ,and select all PSS services
   
     (PSSWEB,PSSBatchJob,PSSBatchJobCore,PSSOCRService,PSSMonitor,PSSSiteBatchJob)
   
