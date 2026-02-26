@@ -66,7 +66,6 @@ PSS列印伺服器(PSS Server) 基本設定,列印漫游設定主要分為兩部
   
   #@img_A0003/0002.png
 
-
 - 選擇建立 LPR Port (New LPR Port)
   
   #@img_A0003/0012.png
@@ -98,7 +97,35 @@ PSS列印伺服器(PSS Server) 基本設定,列印漫游設定主要分為兩部
 
 - 輸入虛擬印表機名稱 ex.Printer_Roaming (此印表機名稱是提供使用者漫游列印的對象)
 
-### 2.3 實體印表機 (漫游列印印表機)
+### 2.3 在 Powermoat 設定虛擬印表機
+
+此步驟讓使用者對擬印表機的工作能被保存派發,如沒有操作在 Powermoat 無法看到來自使用者的列印工作
+
+- 開啟 Powermoat 列印伺服器頁面
+
+  #@img_A0003/0017.png
+
+- 點擊伺服器中的重新整理印表機,並進行更新未知印表機
+
+- 點擊伺服器中的重新整理印表機,並進行更新未知印表機
+
+- 開啟 Powermoat 印表機管理維護頁面
+
+  #@img_A0003/0018.png
+
+- 設定 Printer_Roaming 不勾選 [啟用管控,管制佇列列印]
+
+  #@img_A0003/0019.png
+
+- 設定 Printer_Roaming_LPR 要勾選 [啟用管控,管制佇列列印]
+
+  #@img_A0003/0020.png
+
+- 設定完後,測試列印 Printer_Roaming ,可以看到來自 Printer_Roaming_LPR 的列印工作出現在等待列印表中
+  
+  #@img_A0003/0021.png
+  
+### 2.4 實體印表機 (漫游列印印表機)
 
 - 開啟 Print Management 軟體界面
 -
