@@ -128,4 +128,19 @@ PSS列印伺服器(PSS Server) 基本設定,列印漫游設定主要分為兩部
 ### 2.4 實體印表機 (漫游列印印表機)
 
 - 開啟 Print Management 軟體界面
--
+  
+  #@img_A0003/0022.png
+
+- 接續選擇 Add Port -> Standard TCP/IP Port -> New Port
+
+  #@img_A0003/0023.png
+
+- 輸入 IP Adrress 和 Port Name (必需輸入IP)
+
+  #@img_A0003/0024.png
+
+- 輸入 IP Adrress 和 Port Name (必需輸入IP)
+
+
+
+
