@@ -2,13 +2,13 @@
 
   #@img_SYS0007/image30.png
 
-**[Add]：建立一個新列印成本角色**
+**[Add]：Create a New Print Cost Role**
 
 **Example: Create a general print cost role general_cost: Print cost for general printers.**
 
   #@img_SYS0007/image31.png
 
-**Edit列印成本角色Content**
+## Edit Print Cost Role Details
 
   #@img_SYS0007/image32.png
 

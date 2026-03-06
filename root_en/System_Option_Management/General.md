@@ -2,7 +2,7 @@
 
   #@img_SYS0002/image15.png
 
-**列印文件：列印文件的Image檔**案處理方式
+- **Printed Document: Image File Processing Method**
 
 - Document Backup: Force Always Backup/ Force Never Backup/ Set by Printer and User Permission
 

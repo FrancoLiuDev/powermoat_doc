@@ -4,7 +4,7 @@
 
 Set this print permission role to have print, copy, scan, and fax functions; print and copy distinguish between color and BW permissions.
 
-**[Add]：建立一個新列印權限角色**
+**[Add]：Create a New Print Permission Role**
 
 **Example: Create a 'General Permission Role' general_role: Only allow BW print, BW copy, and scan functions**
 
