@@ -1,4 +1,4 @@
-# Audit Rule維護
+# Audit Rule Maintenance
 
 **Notification Level Setting and Audit Ruledesign**
 
@@ -10,14 +10,14 @@
 
   #@img_AD0005/image124.png
 
-**Notification Level Setting：修改。點擊[Edit Icon] 即可EnterEdit修改**
+**Notification Level Setting：To modify, click the [Edit] icon to enter edit mode.**
 
   #@img_AD0005/image125.png
 
 **\
 **
 
-**Notification Level Setting：刪除。點擊[Delete Icon] 即可刪除。**
+**Notification Level Setting：To delete, click the [Delete] icon.**
 
   #@img_AD0005/image126.png
 
@@ -25,7 +25,7 @@
 
   #@img_AD0005/image127.png
 
-**Audit Ruledesign：可perform新增、修改、刪除。**
+**Audit Ruledesign：You can perform Add, Edit, and Delete operations.**
 
   #@img_AD0005/image128.png
 
@@ -37,4 +37,4 @@ Multiple Condition Rule Setting Example
 
   #@img_AD0005/image129.png
 
-When document content has "Confidential" AND (文件Content  contains  "designDiagram" OR "Circuit") the condition is met, triggering a notification event。
+When document content has "Confidential" AND (Document Content  contains  "designDiagram" OR "Circuit") the condition is met, triggering a notification event。

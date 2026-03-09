@@ -36,11 +36,11 @@
 
 ### Active Directory：Add setting for a schedule to import employee data file from AD
 
-- **[基本]：Set AD relevant data**
+- **[Basic]: Set AD-Related Data**
 
-- **[欄位對應]：Set AD corresponding employee data file fields**
+- **[Field Mapping]：Set AD corresponding employee data file fields**
 
-- **[排程]：Set import cycle time**
+- **[Schedule]：Set import cycle time**
 
   #@img_U0005/image71.png
 
@@ -48,8 +48,8 @@
 
   #@img_U0005/image72.png
 
-- **[基本]：Set DB relevant data**
+- **[Basic]：Set DB relevant data**
 
-- **[欄位對應]：Set DB corresponding employee data file fields**
+- **[Field Mapping]：Set DB corresponding employee data file fields**
 
-- **[排程]：Set import cycle time**
+- **[Schedule]：Set import cycle time**

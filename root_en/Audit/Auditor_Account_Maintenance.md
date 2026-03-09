@@ -6,7 +6,7 @@
 
 Audit administrators can assign auditor roles as needed
 
-## [Add]：Assign一個Account具備Auditor角色
+## [Add]: Assign an Account to the Whitelist
 
 Example: Assign tomchan the auditor role
 

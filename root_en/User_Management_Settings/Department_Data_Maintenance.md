@@ -2,7 +2,7 @@
 
   #@img_U0003/image59.png
 
-新增、Edit、刪除Department資料
+Add, Edit, and Delete Department Data
 
 ## [Add]：Create a new department：Sales Section 1
 

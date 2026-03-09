@@ -2,9 +2,9 @@
 
   #@img_AD0001/image145.png
 
-Audit Manager可依據Requirements設定白名單，白名單的Account將不performFour-factor backup operation。
+The Audit Manager can set a whitelist based on the requirements. Accounts on the whitelist will not perform the Four-Factor Backup operation.
 
-## [Add]：Assign一個Account具備白名單
+## [Add]: Assign an Account to the Whitelist
 
 Example: Assign peterlai to whitelist
 

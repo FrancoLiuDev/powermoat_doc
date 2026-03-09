@@ -111,3 +111,6 @@ python3 tools/pack_md_to_html.py others/SUPPORT/MANTIS.md
 
 把 PowerMoat管理系統維運手冊_v20250827裡 列印審核中 部門審核者進行審核作業 的內容獨立出來到 root/列印審核/部門審核者進行審核作業.md 把圖放在images/PRTAD0004
 
+
+
+file:///home/franco/Documents/Project/powermoat_doc/dist/html_en/Print_Audit/Department_Auditor_Operation.html 有中文圖片

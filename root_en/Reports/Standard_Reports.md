@@ -8,7 +8,7 @@ PowerMoat provides multiple standard reports covering users, printers, security,
 
   #@img_R0002/image114.png
 
-## Standard Reports清單及簡易說明
+## List of Standard Reports with Brief Descriptions
 
 | Category     | Report Name             | Usage Description                           |
 |----------|----------------------|------------------------------------|
