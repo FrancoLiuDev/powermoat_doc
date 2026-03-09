@@ -22,7 +22,7 @@ N/A
 
   #@img_A0004/0015.png
 
-- 關閉安裝程式,perform無Printer安裝
+- Close the installer and proceed with the installation without a printer.
   
 - Open Print Server -> Driver item, operate Add Driver
 
@@ -42,7 +42,7 @@ N/A
 
   #@img_A0004/0016.png
 
-- Sequentialperform安裝
+- Continue the installation step by step.
   
   #@img_A0004/0017.png
 

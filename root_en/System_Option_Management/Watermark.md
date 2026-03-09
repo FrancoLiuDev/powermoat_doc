@@ -13,12 +13,12 @@ Dynamic Watermark Function: Multiple watermark templates can be set for differen
 **\
 **
 
-\[Edit\]：浮水印Templatedesign
+\[Edit\]：Watermark Template design
 
   #@img_SYS0009/image42.png
 
 
-- **操作：可在design區中對Watermark Object直接以滑鼠拖曳、選轉、縮放。**
+- **Operation: In the Design section, the Watermark Object can be directly dragged, rotated, and resized using the mouse.**
 
 - **Watermark Object**：System parameters provided for watermark use:
 
@@ -34,7 +34,7 @@ Dynamic Watermark Function: Multiple watermark templates can be set for differen
 
   - Owner (FUJFILM only)
 
-- **Watermark Style**：提供浮水印的font的Variation
+- **Watermark Style**：Provide font variations for the watermark.
 
   - font
 

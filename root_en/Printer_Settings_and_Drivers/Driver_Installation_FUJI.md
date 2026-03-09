@@ -36,7 +36,7 @@ N/A
 
   #@img_A0004/0008.png
 
-- Sequentialperform安裝
+- Continue the installation step by step.
   
   #@img_A0004/0009.png
 
