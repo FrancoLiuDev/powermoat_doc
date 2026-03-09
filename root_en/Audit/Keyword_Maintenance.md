@@ -4,7 +4,7 @@
 
   #@img_AD0006/image118.png
 
-**Keyword Category Setting：可依據不同分類設定關鍵字、 and DepartmentperformVerify。**
+**Keyword Category Setting: You can set keywords for different categories and have the Department perform verification.**
 
   #@img_AD0006/image119.png
 
@@ -16,7 +16,7 @@
 
   #@img_AD0006/image121.png
 
-**累計: 若設定為Y，表示風險分數 = 關鍵字出現次數N \* 分數**
+**Cumulative: If set to Y, the risk score = Number of keyword occurrences (N) × Score.**
 
 **Regex: If set to Y, keyword is detected by regex; following are two examples:**
 
@@ -24,6 +24,6 @@
 
 **cell phoneNumber: 09\\d{8}**
 
-**修改關鍵字：Select要修改的關鍵字，點擊 [Edit Icon]** **直接performEdit。**
+**To modify a keyword: Select the keyword you want to edit and click the [Edit] icon to perform the edit.**
 
   #@img_AD0006/image122.png

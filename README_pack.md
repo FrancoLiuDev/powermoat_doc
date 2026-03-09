@@ -114,3 +114,6 @@ python3 tools/pack_md_to_html.py others/SUPPORT/MANTIS.md
 
 
 file:///home/franco/Documents/Project/powermoat_doc/dist/html_en/Print_Audit/Department_Auditor_Operation.html 有中文圖片
+
+
+file:///home/franco/Documents/Project/powermoat_doc/dist/html_en/Audit/Notification_Event_Record.html
