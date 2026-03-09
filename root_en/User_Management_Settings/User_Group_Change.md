@@ -1,10 +1,10 @@
-# User群組異動
+# User Group Update
 
 Pre-schedule User Group Change
 
   #@img_U0009/image77.png
 
-## [Add]：User群組異動資料
+## [Add]：User Group Change Data
 
   #@img_U0009/image78.png
 

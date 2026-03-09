@@ -18,6 +18,6 @@ Plan relevant permissions for general users
 
 - **Display user accounts in this user group**
 
-- **可以從這裡EnterEdit群組內的UserAccount (Click"Edit"Icon)**
+- **You can enter the edit mode for the User Account in the group by clicking the "Edit" icon.**
 
   #@img_U0002/image53.png

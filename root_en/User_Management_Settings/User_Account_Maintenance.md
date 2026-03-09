@@ -1,8 +1,8 @@
-# UserAccount維護
+# User Account Maintenance
 
   #@img_U0001/image54.png
 
-新增、Edit、刪除User資料
+Add, Edit, and Delete User Data
 
 ## [Add]：Create a new user account Peter
 
@@ -20,7 +20,7 @@
 
   #@img_U0001/image57.png
 
-當Account因登入錯誤次數過多導致被鎖定，可以於User詳細頁手動perform解除鎖定狀態。
+When an account is locked due to excessive failed login attempts, it can be manually unlocked from the User Details page.
 
 ## Click"Edit"Icon > EnterEdit [Quota Adjustment]
 

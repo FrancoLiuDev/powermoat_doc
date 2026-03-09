@@ -1,10 +1,10 @@
-# User角色異動
+# ser Role Updates
 
 Pre-schedule User Role Change
 
   #@img_U0008/image73.png
 
-## [Add]：User角色異動資料
+## [Add]：User Role Modification Records
 
   #@img_U0008/image74.png
 
