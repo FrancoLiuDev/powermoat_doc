@@ -147,7 +147,7 @@ def convert_md_to_html(md_file, output_dir, base_dir):
         '--toc-depth=3',
         '--metadata', f'title={md_path.stem}',
         '--css', 'https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css',
-        '-V', 'header-includes=<style>body { box-sizing: border-box; min-width: 200px; max-width: 80%; margin: 0 auto; padding: 45px; } @media (max-width: 767px) { body { padding: 15px; } }</style>'
+        
     ]
     
     try:
