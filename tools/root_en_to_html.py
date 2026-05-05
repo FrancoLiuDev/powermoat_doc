@@ -10,6 +10,9 @@ import subprocess
 from pathlib import Path
 import shutil
 import re
+import zlib
+import hashlib
+from urllib import request, error
 
 # ========== 靜態參數設定 ==========
 # 將所有文件中的 IP 替換為此靜態 IP
@@ -23,6 +26,7 @@ FOLDER_ORDER = [
     "Management_Guide",
     "Printer_Settings_and_Drivers",
     "Printer_Management",
+    "Exception Handling",
     "User_Management_Settings",
     "Reports",
     "Print_Audit",
@@ -81,6 +85,9 @@ FILE_ORDER = {
     "Management_Guide": [
         "Related_Services"
     ],
+    "Exception_Handling": [
+        "Follow_Me_Print_Exception_Handling",
+    ],
     "System_Option_Management": [
         "OCR",
         "General",
@@ -98,6 +105,204 @@ FILE_ORDER = {
 }
 # ==================================
 
+PLANTUML_SERVER = "https://www.plantuml.com/plantuml/svg/"
+
+DOC_CSS = """@import url('https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css');
+
+body {
+    margin: 24px auto;
+    max-width: 980px;
+    padding: 0 24px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+pre.plantuml {
+    background: #f6f8fa;
+    border-radius: 8px;
+    padding: 12px;
+}
+"""
+
+INDEX_CSS = """* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    color: white;
+    margin-bottom: 40px;
+}
+
+.header h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.folder {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.folder-title {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #667eea;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.file-list {
+    list-style: none;
+}
+
+.file-item {
+    margin: 10px 0;
+    padding: 15px;
+    background: #f6f8fa;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.file-item:hover {
+    background: #e1e4e8;
+    transform: translateX(5px);
+}
+
+.file-item a {
+    color: #0969da;
+    text-decoration: none;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.file-item a:hover {
+    text-decoration: underline;
+}
+
+.icon {
+    font-size: 1.5em;
+}
+"""
+
+
+def create_shared_css(output_dir):
+    """建立統一管理的 CSS 檔案。"""
+    assets_dir = output_dir / 'assets'
+    assets_dir.mkdir(parents=True, exist_ok=True)
+    (assets_dir / 'doc.css').write_text(DOC_CSS, encoding='utf-8')
+    (assets_dir / 'index.css').write_text(INDEX_CSS, encoding='utf-8')
+
+
+def _plantuml_encode(data):
+    """PlantUML text encoding (deflate + custom base64)."""
+    def encode6bit(b):
+        if b < 10:
+            return chr(48 + b)
+        b -= 10
+        if b < 26:
+            return chr(65 + b)
+        b -= 26
+        if b < 26:
+            return chr(97 + b)
+        b -= 26
+        if b == 0:
+            return '-'
+        if b == 1:
+            return '_'
+        return '?'
+
+    def append3bytes(b1, b2, b3):
+        c1 = b1 >> 2
+        c2 = ((b1 & 0x3) << 4) | (b2 >> 4)
+        c3 = ((b2 & 0xF) << 2) | (b3 >> 6)
+        c4 = b3 & 0x3F
+        return ''.join([encode6bit(c1 & 0x3F), encode6bit(c2 & 0x3F), encode6bit(c3 & 0x3F), encode6bit(c4 & 0x3F)])
+
+    compressed = zlib.compress(data.encode('utf-8'))
+    compressed = compressed[2:-4]
+    encoded = []
+    for i in range(0, len(compressed), 3):
+        b1 = compressed[i]
+        b2 = compressed[i + 1] if i + 1 < len(compressed) else 0
+        b3 = compressed[i + 2] if i + 2 < len(compressed) else 0
+        encoded.append(append3bytes(b1, b2, b3))
+    return ''.join(encoded)
+
+
+def fetch_plantuml_svg(plantuml_src, output_dir):
+    """使用本機 plantuml 或線上伺服器下載 SVG 到 assets/plantuml。"""
+    plantuml_dir = output_dir / 'assets' / 'plantuml'
+    plantuml_dir.mkdir(parents=True, exist_ok=True)
+    file_name = f"{hashlib.sha256(plantuml_src.encode('utf-8')).hexdigest()[:16]}.svg"
+    svg_path = plantuml_dir / file_name
+
+    if not svg_path.exists():
+        try:
+            result = subprocess.run(
+                ['plantuml', '-tsvg', '-pipe'],
+                input=plantuml_src.encode('utf-8'),
+                capture_output=True,
+                check=True,
+            )
+            svg_path.write_bytes(result.stdout)
+        except (subprocess.CalledProcessError, FileNotFoundError, OSError):
+            pass
+
+    if not svg_path.exists():
+        encoded = _plantuml_encode(plantuml_src)
+        image_url = f"{PLANTUML_SERVER}{encoded}"
+        try:
+            with request.urlopen(image_url, timeout=15) as response:
+                svg_path.write_bytes(response.read())
+        except (error.URLError, TimeoutError, OSError):
+            return f"{PLANTUML_SERVER}{encoded}"
+
+    return f"assets/plantuml/{file_name}"
+
+
+def replace_plantuml_blocks(content, output_dir, path_prefix):
+    """將 ```plantuml 區塊轉成原始文字 + SVG 圖片。"""
+    pattern = re.compile(r'```\s*plantuml\s*\n(.*?)\n```', re.IGNORECASE | re.DOTALL)
+
+    def repl(match):
+        plantuml_src = match.group(1).strip()
+        if not plantuml_src:
+            return match.group(0)
+        image_path = fetch_plantuml_svg(plantuml_src, output_dir)
+        source_block = f"```plantuml\n{plantuml_src}\n```"
+        image_src = image_path if image_path.startswith('http') else f"{path_prefix}{image_path}"
+        image_block = f'<p><img src="{image_src}" alt="" /></p>'
+        return f"{source_block}\n\n{image_block}"
+
+    return pattern.sub(repl, content)
+
+
 def convert_md_to_html(md_file, output_dir, base_dir):
     """轉換單個 MD 文件為 HTML"""
     md_path = Path(md_file)
@@ -106,15 +311,18 @@ def convert_md_to_html(md_file, output_dir, base_dir):
     with open(md_file, 'r', encoding='utf-8') as f:
         content = f.read()
     
-    # 替換參數化的 IP 為靜態 IP
-    content = content.replace('#@ip', STATIC_IP)
-    
     # 計算相對路徑
     rel_path = md_path.relative_to(base_dir)
     
     # 計算回到根目錄的相對路徑前綴
     depth = len(rel_path.parts) - 1
     path_prefix = "../" * depth
+
+    # 替換參數化的 IP 為靜態 IP
+    content = content.replace('#@ip', STATIC_IP)
+
+    # 將 PlantUML 程式區塊轉為圖片
+    content = replace_plantuml_blocks(content, output_dir, path_prefix)
 
     # 替換 #@img_ 為相對路徑的圖片 URL
     def replace_image_path(match):
@@ -146,8 +354,7 @@ def convert_md_to_html(md_file, output_dir, base_dir):
         '--toc',
         '--toc-depth=3',
         '--metadata', f'title={md_path.stem}',
-        '--css', 'https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css',
-        
+        '--css', f'{path_prefix}assets/doc.css',
     ]
     
     try:
@@ -198,89 +405,7 @@ def create_index_html(output_dir, html_files, base_dir):
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document Index</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 40px 20px;
-        }
-        
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .header {
-            text-align: center;
-            color: white;
-            margin-bottom: 40px;
-        }
-        
-        .header h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
-        
-        .folder {
-            background: white;
-            border-radius: 12px;
-            padding: 30px;
-            margin-bottom: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-        
-        .folder-title {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #667eea;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .file-list {
-            list-style: none;
-        }
-        
-        .file-item {
-            margin: 10px 0;
-            padding: 15px;
-            background: #f6f8fa;
-            border-radius: 8px;
-            transition: all 0.3s;
-        }
-        
-        .file-item:hover {
-            background: #e1e4e8;
-            transform: translateX(5px);
-        }
-        
-        .file-item a {
-            color: #0969da;
-            text-decoration: none;
-            font-size: 1.1em;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .file-item a:hover {
-            text-decoration: underline;
-        }
-        
-        .icon {
-            font-size: 1.5em;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/index.css" />
 </head>
 <body>
     <div class="container">
@@ -371,6 +496,8 @@ def main():
     
     output_dir.mkdir(parents=True, exist_ok=True)
     print("✅ 創建輸出目錄")
+    create_shared_css(output_dir)
+    print("✅ 產生統一 CSS: assets/doc.css, assets/index.css")
     print()
     
     # 查找所有 MD 文件
