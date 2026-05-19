@@ -43,9 +43,22 @@ entity "monthly_print_records\n(每月抄表紀錄檔)" as monthly_print_records
   --
   period_ym : VARCHAR(6) /* 計費期數 */
   device_code : VARCHAR(50) <<FK>> /* 設備編碼 */
-  bw_total_pages : INT /* 抄表當下黑白總印量 */
-  color_total_pages : INT /* 抄表當下彩色總印量 */
+  bw_prev_pages : INT /* 黑白上期總頁數 */
+  bw_curr_pages : INT /* 黑白本期總頁數 */
+  color_prev_pages : INT /* 彩色上期總頁數 */
+  color_curr_pages : INT /* 彩色本期總頁數 */
+  coverage_rate : DECIMAL(5,2) /* 列印覆蓋率 */
+  toner_level : DECIMAL(5,2) /* 碳粉殘留啪數 */
   remarks : TEXT /* 備註說明 */
+}
+
+entity "billing_parameters\n(計費參數與快照檔)" as billing_parameters {
+  * period_ym : VARCHAR(6) <<PK>> /* 適用期數 */
+  * machine_model : VARCHAR(50) <<PK>> /* 適用機型 */
+  --
+  bw_unit_price : DECIMAL(10,4) /* 黑色單價(含稅) */
+  color_unit_price : DECIMAL(10,4) /* 彩色單價(含稅) */
+  error_deduct_rate : DECIMAL(5,4) /* 誤印扣除率設定 */
 }
 
 ' 關聯性定義

@@ -305,10 +305,8 @@ def replace_plantuml_blocks(content, output_dir, path_prefix):
         if not plantuml_src:
             return match.group(0)
         image_path = fetch_plantuml_svg(plantuml_src, output_dir)
-        source_block = f"```plantuml\n{plantuml_src}\n```"
         image_src = image_path if image_path.startswith('http') else f"{path_prefix}{image_path}"
-        image_block = f'<p><img src="{image_src}" alt="" /></p>'
-        return f"{source_block}\n\n{image_block}"
+        return f'<p><img src="{image_src}" alt="" /></p>'
 
     return pattern.sub(repl, content)
 

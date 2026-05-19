@@ -7,31 +7,121 @@ Markdown 文件打包工具
 import os
 import sys
 import subprocess
+import tempfile
+import hashlib
+import zlib
+import re
 from pathlib import Path
+from urllib import request, error
+
+PLANTUML_SERVER = "https://www.plantuml.com/plantuml/svg/"
+
+
+def _plantuml_encode(data):
+    def encode6bit(b):
+        if b < 10: return chr(48 + b)
+        b -= 10
+        if b < 26: return chr(65 + b)
+        b -= 26
+        if b < 26: return chr(97 + b)
+        b -= 26
+        if b == 0: return '-'
+        if b == 1: return '_'
+        return '?'
+
+    def append3bytes(b1, b2, b3):
+        c1, c2 = b1 >> 2, ((b1 & 0x3) << 4) | (b2 >> 4)
+        c3, c4 = ((b2 & 0xF) << 2) | (b3 >> 6), b3 & 0x3F
+        return ''.join([encode6bit(x & 0x3F) for x in [c1, c2, c3, c4]])
+
+    compressed = zlib.compress(data.encode('utf-8'))[2:-4]
+    encoded = []
+    for i in range(0, len(compressed), 3):
+        b1 = compressed[i]
+        b2 = compressed[i + 1] if i + 1 < len(compressed) else 0
+        b3 = compressed[i + 2] if i + 2 < len(compressed) else 0
+        encoded.append(append3bytes(b1, b2, b3))
+    return ''.join(encoded)
+
+
+def fetch_plantuml_svg(plantuml_src, output_dir):
+    """使用本機 plantuml 或線上服務產生 SVG，存到 assets/plantuml。"""
+    plantuml_dir = output_dir / 'assets' / 'plantuml'
+    plantuml_dir.mkdir(parents=True, exist_ok=True)
+    file_name = f"{hashlib.sha256(plantuml_src.encode('utf-8')).hexdigest()[:16]}.svg"
+    svg_path = plantuml_dir / file_name
+
+    if not svg_path.exists():
+        try:
+            result = subprocess.run(
+                ['plantuml', '-tsvg', '-pipe'],
+                input=plantuml_src.encode('utf-8'),
+                capture_output=True, check=True,
+            )
+            svg_path.write_bytes(result.stdout)
+        except (subprocess.CalledProcessError, FileNotFoundError, OSError):
+            pass
+
+    if not svg_path.exists():
+        try:
+            url = f"{PLANTUML_SERVER}{_plantuml_encode(plantuml_src)}"
+            with request.urlopen(url, timeout=15) as resp:
+                svg_path.write_bytes(resp.read())
+        except (error.URLError, TimeoutError, OSError):
+            return f"{PLANTUML_SERVER}{_plantuml_encode(plantuml_src)}"
+
+    return f"assets/plantuml/{file_name}"
+
+
+def replace_plantuml_blocks(content, output_dir):
+    """將 ```plantuml 區塊替換成 SVG 圖片，並移除原始語法。"""
+    pattern = re.compile(r'```\s*plantuml\s*\n(.*?)\n```', re.IGNORECASE | re.DOTALL)
+
+    def repl(match):
+        src = match.group(1).strip()
+        if not src:
+            return ''
+        image_path = fetch_plantuml_svg(src, output_dir)
+        image_src = image_path if image_path.startswith('http') else f"../{image_path}"
+        return f'<p><img src="{image_src}" alt="" /></p>'
+
+    return pattern.sub(repl, content)
+
 
 def convert_md_to_html(md_file, output_dir):
     """將 MD 文件轉換成 HTML"""
     md_path = Path(md_file)
     html_filename = md_path.stem + '.html'
     html_path = output_dir / html_filename
-    
+
+    # 讀取並前處理 MD 內容
+    content = md_path.read_text(encoding='utf-8')
+    content = replace_plantuml_blocks(content, output_dir)
+
+    # 寫入臨時 MD 檔
+    tmp = tempfile.NamedTemporaryFile(mode='w', suffix='.md', delete=False, encoding='utf-8')
+    tmp.write(content)
+    tmp.close()
+
     # 使用 pandoc 轉換
     cmd = [
         'pandoc',
-        str(md_file),
+        tmp.name,
         '-o', str(html_path),
         '--standalone',
         '--toc',
         '--toc-depth=3',
         '--metadata', f'title={md_path.stem}'
     ]
-    
+
     try:
         subprocess.run(cmd, check=True)
         return html_filename
-    except subprocess.CalledProcessError as e:
+    except subprocess.CalledProcessError:
         print(f"❌ 轉換失敗: {md_file}")
         return None
+    finally:
+        Path(tmp.name).unlink(missing_ok=True)
 
 def create_index_html(html_files, output_dir, title="專案文件"):
     """創建索引頁面"""
