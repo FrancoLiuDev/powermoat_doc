@@ -107,25 +107,30 @@ FILE_ORDER = {
 
 PLANTUML_SERVER = "https://www.plantuml.com/plantuml/svg/"
 
-DOC_CSS = """@import url('https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css');
+VSCODE_MARKDOWN_CSS = Path('/usr/share/code/resources/app/extensions/markdown-language-features/media/markdown.css')
+VSCODE_HIGHLIGHT_CSS = Path('/usr/share/code/resources/app/extensions/markdown-language-features/media/highlight.css')
 
+DOC_CSS_EXTRA = """
 body {
-    margin: 24px auto;
-    max-width: 980px;
-    padding: 0 24px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 28px;
 }
 
 img {
     max-width: 100%;
     height: auto;
 }
-
-pre.plantuml {
-    background: #f6f8fa;
-    border-radius: 8px;
-    padding: 12px;
-}
 """
+
+def _build_doc_css():
+    """Read VS Code built-in Markdown CSS and combine into doc.css content."""
+    parts = []
+    for css_path in [VSCODE_MARKDOWN_CSS, VSCODE_HIGHLIGHT_CSS]:
+        if css_path.exists():
+            parts.append(css_path.read_text(encoding='utf-8'))
+    parts.append(DOC_CSS_EXTRA)
+    return '\n'.join(parts)
 
 INDEX_CSS = """* {
     margin: 0;
@@ -215,7 +220,7 @@ def create_shared_css(output_dir):
     """建立統一管理的 CSS 檔案。"""
     assets_dir = output_dir / 'assets'
     assets_dir.mkdir(parents=True, exist_ok=True)
-    (assets_dir / 'doc.css').write_text(DOC_CSS, encoding='utf-8')
+    (assets_dir / 'doc.css').write_text(_build_doc_css(), encoding='utf-8')
     (assets_dir / 'index.css').write_text(INDEX_CSS, encoding='utf-8')
 
 
@@ -351,6 +356,7 @@ def convert_md_to_html(md_file, output_dir, base_dir):
         '--standalone',
         '--toc',
         '--toc-depth=3',
+        '--highlight-style=pygments',
         '--metadata', f'title={md_path.stem}',
         '--css', f'{path_prefix}assets/doc.css',
     ]

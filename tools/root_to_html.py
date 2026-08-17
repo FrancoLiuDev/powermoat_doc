@@ -39,7 +39,8 @@ FILE_ORDER = {
     "PSS主程式": [
         "PSS_漫遊列印_主程式", 
         "PSS列印漫游設定", 
-        "列印伺服器管理"
+        "列印伺服器管理",
+        "PSS_SITE_SERVER設定",
     ],
     "使用者管理設定": [
         "應用系統角色說明", 
@@ -107,25 +108,30 @@ FILE_ORDER = {
 
 PLANTUML_SERVER = "https://www.plantuml.com/plantuml/svg/"
 
-DOC_CSS = """@import url('https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css');
+VSCODE_MARKDOWN_CSS = Path('/usr/share/code/resources/app/extensions/markdown-language-features/media/markdown.css')
+VSCODE_HIGHLIGHT_CSS = Path('/usr/share/code/resources/app/extensions/markdown-language-features/media/highlight.css')
 
+DOC_CSS_EXTRA = """
 body {
-    margin: 24px auto;
-    max-width: 980px;
-    padding: 0 24px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 28px;
 }
 
 img {
     max-width: 100%;
     height: auto;
 }
-
-pre.plantuml {
-    background: #f6f8fa;
-    border-radius: 8px;
-    padding: 12px;
-}
 """
+
+def _build_doc_css():
+    """讀取 VS Code 內建 Markdown CSS，組合成 doc.css 內容"""
+    parts = []
+    for css_path in [VSCODE_MARKDOWN_CSS, VSCODE_HIGHLIGHT_CSS]:
+        if css_path.exists():
+            parts.append(css_path.read_text(encoding='utf-8'))
+    parts.append(DOC_CSS_EXTRA)
+    return '\n'.join(parts)
 
 INDEX_CSS = """* {
     margin: 0;
@@ -220,7 +226,7 @@ def create_shared_css(output_dir):
     index_css_path = assets_dir / 'index.css'
 
     with open(doc_css_path, 'w', encoding='utf-8') as f:
-        f.write(DOC_CSS)
+        f.write(_build_doc_css())
 
     with open(index_css_path, 'w', encoding='utf-8') as f:
         f.write(INDEX_CSS)
@@ -362,6 +368,7 @@ def convert_md_to_html(md_file, output_dir, base_dir):
         '--standalone',
         '--toc',
         '--toc-depth=3',
+        '--highlight-style=pygments',
         '--metadata', f'title={md_path.stem}',
         '--css', f'{path_prefix}assets/doc.css'
     ]

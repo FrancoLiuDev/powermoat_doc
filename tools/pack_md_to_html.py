@@ -23,8 +23,19 @@ def process_md_images(md_content):
     
     return re.sub(r'#@img_([^\s]+)', replace_img, md_content)
 
+VSCODE_MARKDOWN_CSS = Path('/usr/share/code/resources/app/extensions/markdown-language-features/media/markdown.css')
+VSCODE_HIGHLIGHT_CSS = Path('/usr/share/code/resources/app/extensions/markdown-language-features/media/highlight.css')
+
+def _load_vscode_css():
+    """讀取 VS Code 內建 Markdown CSS，回傳 <style> 標籤字串"""
+    styles = []
+    for css_path in [VSCODE_MARKDOWN_CSS, VSCODE_HIGHLIGHT_CSS]:
+        if css_path.exists():
+            styles.append(f'<style>\n{css_path.read_text(encoding="utf-8")}\n</style>')
+    return '\n'.join(styles)
+
 def md_to_html(md_content, title="Document"):
-    """使用pandoc将MD转换为HTML"""
+    """使用pandoc将MD转换为HTML，套用 VS Code Markdown 樣式"""
     import tempfile
     
     # 创建临时MD文件
@@ -42,6 +53,7 @@ def md_to_html(md_content, title="Document"):
             temp_md,
             '-o', temp_html,
             '--standalone',
+            '--highlight-style=pygments',
             '--metadata', f'title={title}'
         ]
         subprocess.run(cmd, check=True, capture_output=True)
@@ -49,6 +61,11 @@ def md_to_html(md_content, title="Document"):
         # 读取HTML
         with open(temp_html, 'r', encoding='utf-8') as f:
             html_content = f.read()
+        
+        # 注入 VS Code CSS
+        vscode_css = _load_vscode_css()
+        if vscode_css and '</head>' in html_content:
+            html_content = html_content.replace('</head>', vscode_css + '\n</head>')
         
         return html_content
     finally:
@@ -97,6 +114,11 @@ def extract_and_copy_images(html_content, output_dir, source_images_dir):
     # 添加CSS样式
     css_style = '''
 <style>
+body {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 28px;
+}
 img {
     max-width: 80%;
     height: auto;
